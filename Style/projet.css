@@ -1,0 +1,145 @@
+/** header **/
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
+
+nav  a{ /* tous les liens a à l'intérieur de la balise nav */
+    float: left; /* effet flottant */
+    text-decoration: none; /* pas d'héritage avec effet souligné */
+    color: #ffffff; /* couleur du texte */
+    background: #615858; /* couleur de fond */
+    height: 60px; /* hauteur */
+    line-height: 60px; /* interligne */
+    padding: 0 20px; /* marges intérieur */
+     /* police d'écriture */
+    font-size: 20px; /* taille du texte */
+    transition: .5s; /* temps de transition lors du hover : une demi seconde */
+    box-shadow: 2px 2px 5px rgb(126, 115, 101);
+}
+    nav  a:hover{ /* tous liens lors du survol dans la balise nav */
+        color: rgb(74, 74, 75);
+        background: rgb(243, 214, 176); /* couleur de fond */}
+
+/** main **/
+body{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    background-color:  #f4f2f3;
+    font-family: sans-serif;
+    margin: 0%;
+}
+section.Sommaire{
+    margin-left: 155px;
+    
+}
+
+section.Sommaire ul{
+    list-style-type: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 400px;
+    height: auto;
+    border: solid 1px rgb(245, 187, 111);
+    background-color: rgb(243, 214, 176);
+    border-radius: 20px;
+}
+section.Sommaire ul li{
+    margin-top:10px;
+}
+section.Sommaire ul ul{
+    width: 350px;
+}
+
+section.Sommaire ul:first-child{
+    border:none;
+}
+section.Sommaire ul li a{
+    text-decoration: none;
+    color: black;
+}
+section.Sommaire ul li a:hover{
+    border-bottom: 1px solid black;
+}
+
+section.Sommaire ul ul li {
+    margin-top: 5px;
+}
+
+section{
+    display: flex;
+    flex-direction: column;
+}
+section figure{
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    align-items: center;
+    gap: 80px;
+}
+section figure p{
+    
+    margin: 0px;
+    text-indent: 20px;
+    background-color: rgb(233, 186, 124);
+    border: solid 1px rgb(245, 187, 111);
+    box-shadow: 2px 2px 5px rgb(119, 104, 84);
+    border-radius: 20px;
+    padding:  20px ;
+
+    
+}
+
+section figure img {
+    height: 300px;
+    width: auto;
+    border-radius: 20px;
+    
+}
+section h2{
+    margin-left: 155px;
+}
+
+/** Footer **/
+
+footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 1200px;
+    align-items: center;
+    background-color: #615858;
+    border: solid 1px rgb(160, 159, 159);
+    height: 70px;
+    width: auto;
+    margin-top: 20px;
+}
+
+footer a{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-decoration: none;
+    color: rgb(219, 219, 223);
+
+    background:  #1f2833;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    height: 68px;
+    width: auto;
+
+}
+footer a:hover{
+    color: rgb(74, 74, 75);
+    border: solid rgb(177, 177, 179) 1.5px;
+    background: rgb(243, 214, 176);
+}
+
+footer img{
+    height: 70px;
+    width: auto;
+}

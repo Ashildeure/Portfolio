@@ -1,0 +1,120 @@
+/** header **/
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
+
+nav  a{ /* tous les liens a à l'intérieur de la balise nav */
+    float: left; /* effet flottant */
+    text-decoration: none; /* pas d'héritage avec effet souligné */
+    color: #ffffff; /* couleur du texte */
+    background: #615858; /* couleur de fond */
+    height: 60px; /* hauteur */
+    line-height: 60px; /* interligne */
+    padding: 0 20px; /* marges intérieur */
+     /* police d'écriture */
+    font-size: 20px; /* taille du texte */
+    transition: .5s; /* temps de transition lors du hover : une demi seconde */
+    box-shadow: 2px 2px 5px rgb(126, 115, 101);
+}
+    nav  a:hover{ /* tous liens lors du survol dans la balise nav */
+        color: rgb(74, 74, 75);
+        background: rgb(243, 214, 176); /* couleur de fond */}
+/** Main **/
+body{
+    margin: 0%;
+    display: flex;
+    flex-direction: column;
+    gap: 116px;
+    background-color:  #f4f2f3;
+    font-family: sans-serif;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    align-items: center;
+}
+main section:first-of-type{
+    display: flex;
+    flex-direction: column;
+    gap:15px
+    
+}
+main section:first-of-type label{
+    font-size: 35px;
+}
+main section:first-of-type textarea{
+    width: 500px;
+    height: 200px;
+}
+main section:first-of-type input:last-of-type{
+    width: 80px;
+    height: auto;
+}
+
+main section:last-of-type{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+main section:last-of-type p{
+    font-size:35px;
+}
+main section:last-of-type a img{
+    width: 140px;
+    height: auto;
+    transition: transform .1s;
+}
+main section:last-of-type a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+main section:last-of-type a:hover img{
+    transform: scale(1.02);
+}
+
+/** Footer **/
+
+footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 1200px;
+    align-items: center;
+    background-color: #615858;
+    border: solid 1px rgb(160, 159, 159);
+    height: 70px;
+    width: auto;
+    margin-top: 20px;
+}
+
+footer a{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-decoration: none;
+    color: rgb(219, 219, 223);
+
+    background:  #1f2833;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    height: 68px;
+    width: auto;
+
+}
+footer a:hover{
+    color: rgb(74, 74, 75);
+    border: solid rgb(177, 177, 179) 1.5px;
+    background: rgb(243, 214, 176);
+}
+
+footer img{
+    height: 70px;
+    width: auto;
+}
