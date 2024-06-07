@@ -24,6 +24,10 @@ nav  a{ /* tous les liens a à l'intérieur de la balise nav */
         background: rgb(243, 214, 176); /* couleur de fond */}
 
 /** main **/
+html{
+    width: 100%;
+    height: 100%;
+}
 body{
     display: flex;
     flex-direction: column;
@@ -31,6 +35,8 @@ body{
     background-color:  #f4f2f3;
     font-family: sans-serif;
     margin: 0%;
+    width: 100%;
+    height: 100%;
 }
 section.Sommaire{
     margin-left: 155px;
