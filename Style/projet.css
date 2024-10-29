@@ -86,7 +86,7 @@ section figure{
     align-items: center;
     gap: 80px;
 }
-section figure p{
+section figure div{
     
     margin: 0px;
     text-indent: 20px;
