@@ -31,13 +31,34 @@
             <textarea required id="message" name="message" placeholder="Votre message ici..."></textarea>
 
             <div class="ligne-actions">
-                <button type="submit" class="bouton">Envoyer</button>
                 <div class="liens-droite">
                     <a href="mailto:aline.rostagnat@etu.univ-grenoble-alpes.fr" class="lien-action">Email</a>
                     <a href="https://www.linkedin.com/in/aline-rostagnat-724a862b3/" target="_blank" class="lien-action">LinkedIn</a>
                 </div>
+                <button type="submit" class="bouton">Envoyer</button>
+                
             </div>
         </form>
     </div>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        (function(){
+            emailjs.init("RmE2VsOQ6crdQFX1L");
+        })();
+
+        document.getElementById('formulaire-contact').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            emailjs.sendForm('service_efxyigi', 'template_rwsyklo', this)
+                .then(function() {
+                    alert('Message envoyé avec succès !');
+                    document.getElementById('formulaire-contact').reset();
+                }, function(error) {
+                    alert('Erreur lors de l\'envoi. Veuillez réessayer plus tard.');
+                    console.error('Erreur EmailJS:', error);
+                });
+        });
+    </script>
+
 </body>
 </html>
