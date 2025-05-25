@@ -1,0 +1,96 @@
+#projet-detail {
+  margin-top: 2%;
+  padding: 0rem 2rem;
+  min-height: 100vh;
+  color: seashell;
+  font-family: 'Poppins', sans-serif;
+}
+
+#entete {
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  border-left: 4px solid seashell;
+  color: seashell;
+  box-sizing: border-box;
+  width: fit-content;
+  padding: 25px 30px;
+  margin-bottom: 2rem;
+}
+
+#entete h2 {
+  font-size: 2.3rem;
+  margin: 0;
+  color: seashell;
+  display: flex;
+  gap: 2rem;
+}
+
+#btn-github {
+    background-color: #6f42c1;
+    color: white;
+    border: none;
+    padding: 0.2rem 1rem;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+#btn-github:hover {
+    background-color: #5e36a5;
+}
+
+#btn-github svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Logos des technos */
+#technos {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+#technos img {
+  width: 20px;
+  height: 20px;
+}
+
+
+/* Grille des médias */
+#medias {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
+
+#medias iframe {
+  width: 50%;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+#medias figure img{
+  width: 400px;
+}
+#circus1
+{
+  width:auto !important;
+  height: 400px;
+}
+
+#medias figcaption
+{
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  color: seashell;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  padding: 0.3rem;
+  width: fit-content;
+}

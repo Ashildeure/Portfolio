@@ -1,0 +1,111 @@
+/* Conteneur du formulaire */
+#conteneur-formulaire {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    padding: 40px 50px;
+    margin:2% 0 0 2%;
+    max-width: 900px;
+    box-sizing: border-box;
+    border-left: 4px solid seashell;
+    color: seashell;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+#conteneur-formulaire h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+#conteneur-formulaire p {
+    margin-bottom: 20px;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+#formulaire-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+}
+
+label {
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+input, textarea {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: seashell;
+    outline: none;
+    box-sizing: border-box;
+}
+
+input::placeholder, textarea::placeholder {
+    color: #ddd;
+}
+
+input {
+    width: 100%;
+}
+
+textarea {
+    resize: horizontal;
+    min-width: 100%;
+    max-width: 100%;
+    outline: none;
+    height: 150px;
+}
+
+.ligne-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.liens-droite {
+    display: flex;
+    gap: 1rem;
+}
+
+.lien-action {
+    background-color: transparent;
+    color: seashell;
+    border: 2px solid seashell;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.lien-action:hover {
+    background-color: seashell;
+    color: #6f42c1;
+}
+
+.bouton {
+    background-color: #6f42c1;
+    border: 2px solid #6f42c1;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.4rem;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: fit-content;
+}
+
+.bouton:hover {
+    background-color: #5e36a5;
+}

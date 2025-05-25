@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="design/contact.css" />
+    <title>Portfolio – Aline Rostagnat</title>
+    <link rel="stylesheet" href="design/nav.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav id="barre_nav">
+        <a href="index.html">Accueil</a>
+        <a href="profil.html">À propos de moi</a>
+        <a href="projet.html">Mes projets</a>
+        <a href="contact.html">Me contacter</a>
+    </nav>
+
+    <div id="conteneur-formulaire">
+        <h2>Envie de collaborer ?</h2>
+        <p>N'hésitez pas à me laisser un message, je serai ravie d’échanger avec vous !</p>
+
+        <form id="formulaire-contact" action="#" method="POST">
+            <label for="nom">Nom / Entreprise*</label>
+            <input required type="text" id="nom" name="nom" required />
+
+            <label for="email">Adresse email*</label>
+            <input required type="email" id="email" name="email" required />
+
+            <label for="message">Message*</label>
+            <textarea required id="message" name="message" placeholder="Votre message ici..."></textarea>
+
+            <div class="ligne-actions">
+                <button type="submit" class="bouton">Envoyer</button>
+                <div class="liens-droite">
+                    <a href="mailto:aline.rostagnat@etu.univ-grenoble-alpes.fr" class="lien-action">Email</a>
+                    <a href="https://www.linkedin.com/in/aline-rostagnat-724a862b3/" target="_blank" class="lien-action">LinkedIn</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+
+/* --- PRESENTATION TEXT --- */
+#presentation {
+    margin:15% 0 0 2%;
+    max-width: 500px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    padding: 30px;
+    border-left: 4px solid seashell;
+    color: seashell;
+    box-sizing: border-box;
+    z-index: 1;
+}
+
+#presentation h2 {
+    font-size: 1.5rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+    margin: 0;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+#presentation h1 {
+    font-size: 5rem;
+    font-weight: 600;
+    margin: 10px 0;
+    text-transform: uppercase;
+}
+
+#presentation p {
+    font-size: 1rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: 20px;
+    line-height: 1.6;
+}
