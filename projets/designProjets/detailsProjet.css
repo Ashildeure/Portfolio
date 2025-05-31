@@ -6,7 +6,7 @@
   font-family: 'Poppins', sans-serif;
 }
 
-#entete {
+#entete, #competences {
   display: flex;
   flex-direction: column;
   background: rgba(255, 255, 255, 0.1);
@@ -19,12 +19,22 @@
   margin-bottom: 2rem;
 }
 
+#competences
+{
+  backdrop-filter: blur(100px);
+}
+
 #entete h2 {
   font-size: 2.3rem;
   margin: 0;
   color: seashell;
   display: flex;
   gap: 2rem;
+}
+
+#competences h2 {
+  font-size: 1.5rem;
+  margin: 0;
 }
 
 #btn-github {
@@ -70,7 +80,7 @@
 }
 
 #medias iframe {
-  width: 50%;
+  width: 90%;
   border-radius: 20px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
