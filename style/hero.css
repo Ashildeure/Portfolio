@@ -1,0 +1,208 @@
+/* ============================================================
+   HERO.CSS — Section d'accueil / introduction
+   Portfolio — Aline Rostagnat
+   ============================================================ */
+
+/* ============================
+   SECTION HERO
+============================ */
+#accueil {
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 0 6rem;
+}
+
+/* Lueur d'arrière-plan gauche */
+#accueil::before {
+  content: '';
+  position: absolute;
+  top: -20%; left: -10%;
+  width: 70vw;
+  height: 80vh;
+  background: -webkit-radial-gradient(center, ellipse, rgba(107, 63, 160, 0.18) 0%, transparent 70%);
+  background: radial-gradient(ellipse at center, rgba(107, 63, 160, 0.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Lueur d'arrière-plan droite */
+#accueil::after {
+  content: '';
+  position: absolute;
+  bottom: 0; right: 5%;
+  width: 50vw;
+  height: 60vh;
+  background: -webkit-radial-gradient(center, ellipse, rgba(201, 168, 76, 0.07) 0%, transparent 70%);
+  background: radial-gradient(ellipse at center, rgba(201, 168, 76, 0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Ligne verticale décorative */
+.hero-ligne-verticale {
+  position: absolute;
+  top: 0; left: 5rem; bottom: 0;
+  width: 1px;
+  background: -webkit-linear-gradient(top, transparent, var(--or) 20%, var(--or) 80%, transparent);
+  background: linear-gradient(to bottom, transparent, var(--or) 20%, var(--or) 80%, transparent);
+  opacity: 0.2;
+}
+
+/* Conteneur du contenu hero */
+.hero-contenu {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+}
+
+/* Sous-titre chapeau */
+.hero-chapeau {
+  font-family: var(--police-mono);
+  font-size: 1rem;
+  text-transform: uppercase;
+  color: var(--or);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  opacity: 0;
+  -webkit-animation: apparaitreEnHaut 0.8s var(--transition-fluide) 0.2s forwards;
+  animation: apparaitreEnHaut 0.8s var(--transition-fluide) 0.2s forwards;
+}
+
+.hero-chapeau::before {
+  content: '';
+  width: 60px;
+  height: 1px;
+  background: var(--or);
+  opacity: 0.5;
+}
+
+/* Nom principal */
+.hero-nom {
+  font-family: var(--police-titre);
+  font-size: clamp(3rem, 8vw, 7.5rem);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: 0.05em;
+  color: var(--creme);
+  margin-bottom: 0.3em;
+  opacity: 0;
+  -webkit-animation: apparaitreEnHaut 0.9s var(--transition-fluide) 0.4s forwards;
+  animation: apparaitreEnHaut 0.9s var(--transition-fluide) 0.4s forwards;
+}
+
+.hero-nom em {
+  font-style: italic;
+  color: var(--or-clair);
+}
+
+/* Métier */
+.hero-metier {
+  font-family: var(--police-corps);
+  font-size: clamp(1.3rem, 2.5vw, 1.85rem);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--violet-clair);
+  letter-spacing: 0.05em;
+  margin-bottom: 2rem;
+  opacity: 0;
+  -webkit-animation: apparaitreEnHaut 0.9s var(--transition-fluide) 0.55s forwards;
+  animation: apparaitreEnHaut 0.9s var(--transition-fluide) 0.55s forwards;
+}
+
+/* Description courte */
+.hero-description {
+  font-size: 1.45rem;
+  font-weight: 300;
+  color: var(--discret);
+  max-width: 520px;
+  line-height: 1.8;
+  margin-bottom: 3rem;
+  opacity: 0;
+  -webkit-animation: apparaitreEnHaut 0.9s var(--transition-fluide) 0.7s forwards;
+  animation: apparaitreEnHaut 0.9s var(--transition-fluide) 0.7s forwards;
+}
+
+/* Boutons d'action */
+.hero-actions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1.5rem;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  opacity: 0;
+  -webkit-animation: apparaitreEnHaut 0.9s var(--transition-fluide) 0.85s forwards;
+  animation: apparaitreEnHaut 0.9s var(--transition-fluide) 0.85s forwards;
+}
+
+/* Indicateur de défilement */
+.hero-defilement {
+  position: absolute;
+  bottom: 3rem;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0;
+  -webkit-animation: apparaitre 1s ease 1.5s forwards;
+  animation: apparaitre 1s ease 1.5s forwards;
+}
+
+.hero-defilement span {
+  font-family: var(--police-mono);
+  font-size: 0.88rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--discret);
+}
+
+.ligne-defilement {
+  width: 1px;
+  height: 60px;
+  background: -webkit-linear-gradient(top, var(--or), transparent);
+  background: linear-gradient(to bottom, var(--or), transparent);
+  -webkit-animation: pulsationDefilement 2s ease-in-out infinite;
+  animation: pulsationDefilement 2s ease-in-out infinite;
+}
+
+/* ============================
+   RESPONSIVE HERO
+============================ */
+@media (max-width: 900px) {
+  #accueil {
+    padding: 5rem 2rem 3rem;
+    min-height: 100svh;
+    min-height: -webkit-fill-available;
+  }
+
+  .hero-ligne-verticale {
+    left: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-nom {
+    line-height: 1.05;
+  }
+}

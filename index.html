@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio d'Aline Rostagnat — Développeuse Full Stack, étudiante en BUT Informatique à Grenoble." />
+  <meta name="author" content="Aline Rostagnat" />
+
+  <!-- Compatibilité Internet Explorer / Edge (ancien) -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <title>Aline Rostagnat — Portfolio</title>
+
+  <!-- Polices Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Feuilles de style -->
+  <link rel="stylesheet" href="style/base.css" />
+  <link rel="stylesheet" href="style/navigation.css" />
+  <link rel="stylesheet" href="style/hero.css" />
+  <link rel="stylesheet" href="style/apropos.css" />
+  <link rel="stylesheet" href="style/projets.css" />
+  <link rel="stylesheet" href="style/competence-contact.css" />
+</head>
+<body>
+
+  <!-- =====================================================
+       CURSEUR PERSONNALISÉ
+  ===================================================== -->
+  <div id="curseur-point" aria-hidden="true"></div>
+  <div id="curseur-anneau" aria-hidden="true"></div>
+
+  <!-- =====================================================
+       NAVIGATION PRINCIPALE
+  ===================================================== -->
+  <nav id="barre-nav" role="navigation" aria-label="Navigation principale">
+    <a class="logo-nav" href="#accueil">A·R</a>
+
+    <ul class="liens-nav">
+      <li><a href="#apropos">Profil</a></li>
+      <li><a href="#projets">Projets</a></li>
+      <li><a href="#competences">Compétences</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <button class="bouton-menu" id="bouton-menu" aria-label="Ouvrir le menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- Menu mobile -->
+  <div id="menu-mobile" role="navigation" aria-label="Menu mobile">
+    <a href="#apropos">Profil</a>
+    <a href="#projets">Projets</a>
+    <a href="#competences">Compétences</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+  <!-- =====================================================
+       SECTION ACCUEIL / HERO
+  ===================================================== -->
+  <section id="accueil" aria-label="Introduction">
+    <div class="hero-ligne-verticale" aria-hidden="true"></div>
+
+    <div class="hero-contenu">
+      <div class="hero-chapeau">Portfolio · 2026</div>
+
+      <h1 class="hero-nom">
+        Aline<br>
+        <em>Rostagnat</em>
+      </h1>
+
+      <p class="hero-metier">Développeuse Full Stack</p>
+
+      <p class="hero-description">
+        Étudiante en informatique, je me forme à la conception d'applications
+        web et mobiles — entre rigueur académique et expériences de terrain.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn-principal" href="design/img/CV_aline_rostagnat.pdf" download>Télécharger le CV</a>
+        <a class="btn-fantome" href="#projets">Voir mes projets</a>
+      </div>
+    </div>
+
+    <!-- Indicateur de défilement -->
+    <div class="hero-defilement" aria-hidden="true">
+      <div class="ligne-defilement"></div>
+      <span>Défiler</span>
+    </div>
+  </section>
+
+  <!-- Séparateur ornemental -->
+  <div class="separateur" aria-hidden="true">
+    <div class="separateur-ligne"></div>
+    <div class="separateur-centre">
+      <div class="separateur-diamant"></div>
+      <div class="separateur-diamant" style="opacity:1; background:var(--violet-moyen);"></div>
+      <div class="separateur-diamant"></div>
+    </div>
+    <div class="separateur-ligne"></div>
+  </div>
+
+  <!-- =====================================================
+       SECTION À PROPOS
+  ===================================================== -->
+  <section id="apropos" aria-label="À propos de moi">
+    <div class="grille-apropos">
+
+      <!-- Texte de présentation -->
+      <div class="texte-apropos apparition">
+        <div class="etiquette-section">À propos</div>
+        <h2 class="titre-section">
+          Créative,<br>
+          <em>curieuse</em>, engagée
+        </h2>
+
+        <p>
+          Je m'appelle <strong>Aline Rostagnat</strong>, étudiante en troisième année de
+          Bachelor Universitaire de Technologie en Informatique à l'IUT2 de Grenoble.
+        </p>
+        <p>
+          Je me forme au développement <strong>full stack</strong> — des interfaces pensées
+          pour l'utilisateur jusqu'à l'architecture back-end. Toujours prête à apprendre
+          et à relever de nouveaux défis.
+        </p>
+
+        <div class="rangee-sociale">
+          <a class="lien-social" href="https://www.linkedin.com/in/aline-rostagnat-724a862b3/" target="_blank" rel="noopener noreferrer">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0 8h5v16H0V8zm7.5 0H13v2.2h.1c.8-1.5 2.8-3 5.4-3C22.5 7.2 24 9.3 24 13.3V24h-5V14.3c0-2.4-.9-4-3-4-1.6 0-2.5 1-3 2v11.7H7.5V8z"/>
+            </svg>
+            LinkedIn
+          </a>
+          <a class="lien-social" href="https://github.com/Ashildeure" target="_blank" rel="noopener noreferrer">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true">
+              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
+            </svg>
+            GitHub
+          </a>
+          <a class="btn-principal" href="design/img/CV_aline_rostagnat.pdf" download>CV ↓</a>
+        </div>
+      </div>
+
+      <!-- Frise chronologique -->
+      <div class="frise-chronologique apparition" style="-webkit-transition-delay:0.2s; transition-delay:0.2s;">
+
+        <div class="frise-groupe">
+          <div class="frise-categorie">Expérience</div>
+
+          <div class="frise-element">
+            <h3>Alternance - Développement Full Stack</h3>
+            <div class="frise-lieu">MVP · Grenoble</div>
+            <div class="frise-date">2025 → Maintenant</div>
+            <div class="badge-techno">PHP · JS · SQL · HTML · CSS</div>
+          </div>
+
+          <div class="frise-element">
+            <h3>Stage - Développement Full Stack</h3>
+            <div class="frise-lieu">MVP · Grenoble</div>
+            <div class="frise-date">04/2025 → 06/2025</div>
+            <div class="badge-techno">PHP · JS · SQL · HTML · CSS</div>
+          </div>
+        </div>
+
+        <div class="frise-groupe">
+          <div class="frise-categorie">Formation</div>
+
+          <div class="frise-element">
+            <h3>BUT Informatique</h3>
+            <div class="frise-lieu">IUT2 · UGA Grenoble</div>
+            <div class="frise-date">2023 → Maintenant</div>
+          </div>
+
+          <div class="frise-element">
+            <h3>Baccalauréat Général - Mention Bien</h3>
+            <div class="frise-lieu">Lycée Vaugelas · Chambéry</div>
+            <div class="frise-date">2020 → 2023</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Séparateur ornemental -->
+  <div class="separateur" aria-hidden="true">
+    <div class="separateur-ligne"></div>
+    <div class="separateur-centre">
+      <div class="separateur-diamant"></div>
+      <div class="separateur-diamant" style="opacity:1; background:var(--violet-moyen);"></div>
+      <div class="separateur-diamant"></div>
+    </div>
+    <div class="separateur-ligne"></div>
+  </div>
+
+  <!-- =====================================================
+       SECTION PROJETS
+  ===================================================== -->
+  <section id="projets" aria-label="Mes projets">
+
+    <div class="entete-projets apparition">
+      <div>
+        <div class="etiquette-section">Réalisations</div>
+        <h2 class="titre-section">Mes <em>projets</em></h2>
+      </div>
+      <p class="sous-titre">
+        Projets académiques et personnels illustrant mes compétences en développement et conception.
+      </p>
+    </div>
+
+    <div class="grille-projets">
+
+      <a class="carte-projet apparition" href="projets/mon-carnet-de-stage.html" style="-webkit-transition-delay:0.05s; transition-delay:0.05s;">
+        <div class="numero-carte">01 <span class="fleche-projet" aria-hidden="true">↗</span></div>
+        <h3 class="titre-carte">Mon Carnet de Stage</h3>
+        <p class="description-carte">Amélioration d'une application mobile dédiée au suivi de candidatures de stage pour étudiants. Axé sur la qualité et les tests.</p>
+        <div class="pile-technos">
+          <span class="etiquette-techno">Android</span>
+          <span class="etiquette-techno">Symfony</span>
+          <span class="etiquette-techno">SQL</span>
+          <span class="etiquette-techno">CSS</span>
+        </div>
+        <div class="equipe-carte">Équipe de 5</div>
+      </a>
+
+      <a class="carte-projet apparition" href="projets/notadomus.html" style="-webkit-transition-delay:0.1s; transition-delay:0.1s;">
+        <div class="numero-carte">02 <span class="fleche-projet" aria-hidden="true">↗</span></div>
+        <h3 class="titre-carte">NotaDomus</h3>
+        <p class="description-carte">Carte interactive de valorisation du patrimoine culturel français — avec système social (commentaires, notations, amis).</p>
+        <div class="pile-technos">
+          <span class="etiquette-techno">PHP</span>
+          <span class="etiquette-techno">JavaScript</span>
+          <span class="etiquette-techno">HTML</span>
+          <span class="etiquette-techno">CSS</span>
+        </div>
+        <div class="equipe-carte">Équipe de 7</div>
+      </a>
+
+      <a class="carte-projet apparition" href="projets/myamiibolist.html" style="-webkit-transition-delay:0.15s; transition-delay:0.15s;">
+        <div class="numero-carte">03 <span class="fleche-projet" aria-hidden="true">↗</span></div>
+        <h3 class="titre-carte">MyAmiiboList</h3>
+        <p class="description-carte">Journal interactif des figurines amiibos via API — filtres avancés, liste de favoris et collection personnelle.</p>
+        <div class="pile-technos">
+          <span class="etiquette-techno">JavaScript</span>
+          <span class="etiquette-techno">HTML</span>
+          <span class="etiquette-techno">CSS</span>
+        </div>
+        <div class="equipe-carte">Équipe de 2</div>
+      </a>
+
+      <a class="carte-projet apparition" href="projets/circus-planner.html" style="-webkit-transition-delay:0.2s; transition-delay:0.2s;">
+        <div class="numero-carte">04 <span class="fleche-projet" aria-hidden="true">↗</span></div>
+        <h3 class="titre-carte">Circus Planner</h3>
+        <p class="description-carte">Application lourde de gestion d'événements pour directeurs de cirque — planification de représentations, numéros et acteurs.</p>
+        <div class="pile-technos">
+          <span class="etiquette-techno">Java</span>
+          <span class="etiquette-techno">XML</span>
+          <span class="etiquette-techno">CSS</span>
+        </div>
+        <div class="equipe-carte">Équipe de 5</div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- Séparateur ornemental -->
+  <div class="separateur" aria-hidden="true">
+    <div class="separateur-ligne"></div>
+    <div class="separateur-centre">
+      <div class="separateur-diamant"></div>
+      <div class="separateur-diamant" style="opacity:1; background:var(--violet-moyen);"></div>
+      <div class="separateur-diamant"></div>
+    </div>
+    <div class="separateur-ligne"></div>
+  </div>
+
+  <!-- =====================================================
+       SECTION COMPÉTENCES
+  ===================================================== -->
+  <section id="competences" aria-label="Compétences techniques">
+
+    <div class="entete-competences apparition">
+      <div class="etiquette-section" style="-webkit-box-pack:center; -ms-flex-pack:center; justify-content:center;">Savoir-faire</div>
+      <h2 class="titre-section">Compétences <em>techniques</em></h2>
+    </div>
+
+    <div class="grille-competences">
+
+      <div class="groupe-competence apparition" style="-webkit-transition-delay:0.05s; transition-delay:0.05s;">
+        <div class="titre-groupe">Front-end</div>
+        <ul class="liste-competences">
+          <li>HTML / CSS</li>
+          <li>JavaScript</li>
+          <li>Android (XML)</li>
+          <li>Wireframing UI</li>
+        </ul>
+      </div>
+
+      <div class="groupe-competence apparition" style="-webkit-transition-delay:0.1s; transition-delay:0.1s;">
+        <div class="titre-groupe">Back-end</div>
+        <ul class="liste-competences">
+          <li>PHP / Symfony</li>
+          <li>Java</li>
+          <li>C++</li>
+          <li>Python</li>
+          <li>SQL</li>
+          <li>API REST</li>
+        </ul>
+      </div>
+
+      <div class="groupe-competence apparition" style="-webkit-transition-delay:0.15s; transition-delay:0.15s;">
+        <div class="titre-groupe">Méthodes &amp; Outils</div>
+        <ul class="liste-competences">
+          <li>Git / GitHub</li>
+          <li>Tests fonctionnels</li>
+          <li>UML / Cas d'usage</li>
+          <li>Travail en équipe agile</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Séparateur ornemental -->
+  <div class="separateur" aria-hidden="true">
+    <div class="separateur-ligne"></div>
+    <div class="separateur-centre">
+      <div class="separateur-diamant"></div>
+      <div class="separateur-diamant" style="opacity:1; background:var(--violet-moyen);"></div>
+      <div class="separateur-diamant"></div>
+    </div>
+    <div class="separateur-ligne"></div>
+  </div>
+
+  <!-- =====================================================
+       SECTION CONTACT
+  ===================================================== -->
+  <section id="contact" aria-label="Me contacter">
+
+    <div class="conteneur-contact apparition">
+      <div class="etiquette-section" style="-webkit-box-pack:center; -ms-flex-pack:center; justify-content:center;">Contact</div>
+
+      <p class="accroche-contact">
+        Envie de <em>collaborer</em> ?<br>
+        N'hésitez pas à me laisser un message.
+      </p>
+
+      <form class="formulaire-contact" id="formulaire-contact" novalidate>
+
+        <div class="rangee-formulaire">
+          <div class="champ-formulaire">
+            <label for="champ-nom">Nom / Entreprise *</label>
+            <input type="text" id="champ-nom" name="nom" placeholder="Votre nom" required autocomplete="name" />
+          </div>
+          <div class="champ-formulaire">
+            <label for="champ-email">Adresse email *</label>
+            <input type="email" id="champ-email" name="email" placeholder="votre@email.com" required autocomplete="email" />
+          </div>
+        </div>
+
+        <div class="champ-formulaire">
+          <label for="champ-message">Message *</label>
+          <textarea id="champ-message" name="message" rows="5" placeholder="Décrivez votre projet ou votre demande…" required></textarea>
+        </div>
+
+        <div class="pied-formulaire">
+          <div class="liens-alternatifs">
+            <a href="mailto:aline.rostagnat@etu.univ-grenoble-alpes.fr">Email direct</a>
+            <a href="https://www.linkedin.com/in/aline-rostagnat-724a862b3/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </div>
+          <button type="submit" class="bouton-envoi">Envoyer →</button>
+        </div>
+
+      </form>
+    </div>
+
+  </section>
+
+  <!-- =====================================================
+       PIED DE PAGE
+  ===================================================== -->
+  <footer id="pied-page" role="contentinfo">
+    <p>© 2026 Aline Rostagnat — Tous droits réservés</p>
+    <div class="decoration-pied">
+      <span>Développeuse Full Stack</span>
+      <div class="separateur-diamant" style="opacity:0.5;" aria-hidden="true"></div>
+      <span>Grenoble</span>
+    </div>
+  </footer>
+
+  <!-- =====================================================
+       SCRIPTS
+  ===================================================== -->
+  <!-- EmailJS (chargé en premier car utilisé dans formulaire.js) -->
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+  <!-- Scripts du portfolio -->
+  <script src="js/curseur.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/formulaire.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,212 @@
+/* ============================================================
+   PROJETS.CSS — Grille de cartes de projets
+   Portfolio — Aline Rostagnat
+   ============================================================ */
+
+/* ============================
+   SECTION PROJETS
+============================ */
+#projets {
+  position: relative;
+  overflow: hidden;
+}
+
+#projets::after {
+  content: '';
+  position: absolute;
+  bottom: -10%; left: 30%;
+  width: 60vw;
+  height: 50vh;
+  background: -webkit-radial-gradient(center, ellipse, rgba(201, 168, 76, 0.05) 0%, transparent 70%);
+  background: radial-gradient(ellipse, rgba(201, 168, 76, 0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* En-tête de la section projets */
+.entete-projets {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: end;
+  -ms-flex-align: end;
+  align-items: flex-end;
+  margin-bottom: 4rem;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.entete-projets .sous-titre {
+  font-size: 1.3rem;
+  line-height: 1.7;
+}
+
+/* ============================
+   GRILLE DES PROJETS
+============================ */
+.grille-projets {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1.5px 1fr;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5px;
+  background: var(--ligne);
+}
+
+/* ============================
+   CARTE DE PROJET
+============================ */
+.carte-projet {
+  background: var(--vide);
+  padding: 3rem;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  -webkit-transition: background 0.4s;
+  transition: background 0.4s;
+  cursor: pointer;
+}
+
+/* Superposition dégradé au survol */
+.carte-projet::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  background: -webkit-linear-gradient(315deg, rgba(107, 63, 160, 0.1) 0%, rgba(201, 168, 76, 0.05) 100%);
+  background: linear-gradient(135deg, rgba(107, 63, 160, 0.1) 0%, rgba(201, 168, 76, 0.05) 100%);
+  opacity: 0;
+  -webkit-transition: opacity 0.4s;
+  transition: opacity 0.4s;
+}
+
+/* Ligne de bas de carte (survol) */
+.carte-projet::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0;
+  height: 2px;
+  background: -webkit-linear-gradient(left, var(--violet), var(--or));
+  background: linear-gradient(90deg, var(--violet), var(--or));
+  -webkit-transition: width 0.5s var(--transition-fluide);
+  transition: width 0.5s var(--transition-fluide);
+}
+
+.carte-projet:hover {
+  background: var(--profond);
+}
+
+.carte-projet:hover::before {
+  opacity: 1;
+}
+
+.carte-projet:hover::after {
+  width: 100%;
+}
+
+.carte-projet:hover .fleche-projet {
+  -webkit-transform: translate(4px, -4px);
+  transform: translate(4px, -4px);
+  opacity: 1;
+}
+
+.carte-projet:hover .numero-carte {
+  color: var(--or);
+}
+
+/* Numéro de la carte */
+.numero-carte {
+  font-family: var(--police-mono);
+  font-size: 0.95rem;
+  letter-spacing: 0.2em;
+  color: var(--ligne-v);
+  margin-bottom: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-transition: color 0.3s;
+  transition: color 0.3s;
+}
+
+/* Flèche de lien */
+.fleche-projet {
+  font-size: 1.2rem;
+  color: var(--or);
+  opacity: 0;
+  -webkit-transition: all 0.3s var(--transition-fluide);
+  transition: all 0.3s var(--transition-fluide);
+}
+
+/* Titre du projet */
+.titre-carte {
+  font-family: var(--police-titre);
+  font-size: 1.8rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  color: var(--creme);
+  margin-bottom: 1rem;
+}
+
+/* Description du projet */
+.description-carte {
+  font-size: 1.3rem;
+  color: var(--discret);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+/* Technologies */
+.pile-technos {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 0.5rem;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.etiquette-techno {
+  font-family: var(--police-mono);
+  font-size: 0.88rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--or);
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  padding: 0.2rem 0.6rem;
+}
+
+/* Taille d'équipe */
+.equipe-carte {
+  font-family: var(--police-mono);
+  font-size: 0.92rem;
+  letter-spacing: 0.1em;
+  color: var(--violet-clair);
+  margin-top: 0.8rem;
+}
+
+/* ============================
+   RESPONSIVE PROJETS
+============================ */
+@media (max-width: 900px) {
+  .grille-projets {
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .carte-projet {
+    padding: 2rem 1.5rem;
+  }
+}

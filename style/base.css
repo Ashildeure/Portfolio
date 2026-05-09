@@ -1,0 +1,352 @@
+/* ============================================================
+   BASE.CSS — Variables, Reset, Typographie, Composants globaux
+   Portfolio — Aline Rostagnat
+   ============================================================ */
+
+/* ============================
+   VARIABLES / JETONS DE DESIGN
+============================ */
+:root {
+  --vide:           #0d0a14;
+  --profond:        #120e1f;
+  --surface:        #1c1530;
+  --carte:          #1e1638;
+  --violet:         #6b3fa0;
+  --violet-moyen:   #8b5cc8;
+  --violet-clair:   #b48ef0;
+  --or:             #c9a84c;
+  --or-clair:       #e8cc80;
+  --or-pale:        #f5e6b8;
+  --creme:          #f0e8d8;
+  --discret:        #9990bb;
+  --ligne:          rgba(201, 168, 76, 0.25);
+  --ligne-v:        rgba(107, 63, 160, 0.4);
+  --police-titre:   'Cinzel', serif;
+  --police-corps:   'Cormorant Garamond', serif;
+  --police-mono:    'DM Mono', monospace;
+  --transition-fluide: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ============================
+   RESET & BASE
+============================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-scroll-behavior: smooth;
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  background-color: var(--vide);
+  color: var(--creme);
+  font-family: var(--police-corps);
+  font-size: 22px;
+  line-height: 1.7;
+  overflow-x: hidden;
+  cursor: none;
+  /* Rendu de police optimisé */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Neutralisation du bleu navigateur sur tous les liens */
+a {
+  color: var(--violet-clair);
+  text-decoration: none;
+}
+
+a:visited {
+  color: var(--violet-clair);
+}
+
+/* Sélection de texte */
+::-moz-selection {
+  background: var(--or);
+  color: var(--vide);
+}
+::selection {
+  background: var(--or);
+  color: var(--vide);
+}
+
+/* ============================
+   SUPERPOSITION DE BRUIT (texture)
+============================ */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9990;
+  opacity: 0.4;
+}
+
+/* ============================
+   CURSEUR PERSONNALISÉ
+============================ */
+#curseur-point {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  background: var(--or);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -webkit-transition: width 0.2s, height 0.2s, opacity 0.2s;
+  transition: width 0.2s, height 0.2s, opacity 0.2s;
+  mix-blend-mode: difference;
+}
+
+#curseur-anneau {
+  position: fixed;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(201, 168, 76, 0.5);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -webkit-transition: width 0.35s var(--transition-fluide),
+                      height 0.35s var(--transition-fluide),
+                      border-color 0.2s;
+  transition: width 0.35s var(--transition-fluide),
+              height 0.35s var(--transition-fluide),
+              border-color 0.2s;
+}
+
+body:has(a:hover) #curseur-anneau,
+body:has(button:hover) #curseur-anneau {
+  width: 56px;
+  height: 56px;
+  border-color: var(--or);
+}
+
+/* ============================
+   FILIGRANE / ORNEMENTS
+============================ */
+.filigrane-h {
+  width: 100%;
+  height: 1px;
+  background: -webkit-linear-gradient(left, transparent, var(--or) 20%, var(--or) 80%, transparent);
+  background: linear-gradient(90deg, transparent, var(--or) 20%, var(--or) 80%, transparent);
+  opacity: 0.3;
+}
+
+.separateur {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 0 6rem;
+}
+
+.separateur-ligne {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  height: 1px;
+  background: -webkit-linear-gradient(left, transparent, var(--or), transparent);
+  background: linear-gradient(90deg, transparent, var(--or), transparent);
+  opacity: 0.2;
+}
+
+.separateur-centre {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.separateur-diamant {
+  width: 5px;
+  height: 5px;
+  background: var(--or);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  opacity: 0.6;
+}
+
+/* ============================
+   SECTIONS
+============================ */
+section {
+  padding: 8rem 6rem;
+}
+
+.etiquette-section {
+  font-family: var(--police-mono);
+  font-size: 1.15rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--or);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.etiquette-section::before {
+  content: '';
+  width: 30px;
+  height: 1px;
+  background: var(--or);
+  opacity: 0.6;
+}
+
+.titre-section {
+  font-family: var(--police-titre);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  line-height: 1.1;
+  color: var(--creme);
+  margin-bottom: 1rem;
+}
+
+.titre-section em {
+  font-style: italic;
+  color: var(--or-clair);
+}
+
+/* ============================
+   ANIMATION D'APPARITION
+============================ */
+.apparition {
+  opacity: 0;
+  -webkit-transform: translateY(30px);
+  transform: translateY(30px);
+  -webkit-transition: opacity 0.8s var(--transition-fluide),
+                      -webkit-transform 0.8s var(--transition-fluide);
+  transition: opacity 0.8s var(--transition-fluide),
+              transform 0.8s var(--transition-fluide);
+}
+
+.apparition.visible {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+}
+
+/* ============================
+   BOUTONS
+============================ */
+.btn-principal {
+  font-family: var(--police-mono);
+  font-size: 1rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--vide);
+  background: var(--or);
+  padding: 0.9rem 2.2rem;
+  text-decoration: none;
+  border: 1px solid var(--or);
+  -webkit-transition: background 0.3s, color 0.3s;
+  transition: background 0.3s, color 0.3s;
+  position: relative;
+  display: inline-block;
+}
+
+.btn-principal::before {
+  content: '';
+  position: absolute;
+  top: 3px; right: 3px; bottom: 3px; left: 3px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+}
+
+.btn-principal:hover {
+  background: transparent;
+  color: var(--or);
+}
+
+.btn-fantome {
+  font-family: var(--police-mono);
+  font-size: 1rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--discret);
+  background: transparent;
+  padding: 0.9rem 2.2rem;
+  text-decoration: none;
+  border: 1px solid rgba(153, 144, 187, 0.35);
+  -webkit-transition: color 0.3s, border-color 0.3s;
+  transition: color 0.3s, border-color 0.3s;
+  display: inline-block;
+}
+
+.btn-fantome:hover {
+  color: var(--or-clair);
+  border-color: var(--or);
+}
+
+/* ============================
+   KEYFRAMES GLOBALES
+============================ */
+@-webkit-keyframes apparaitreEnHaut {
+  from { opacity: 0; -webkit-transform: translateY(25px); transform: translateY(25px); }
+  to   { opacity: 1; -webkit-transform: translateY(0);    transform: translateY(0); }
+}
+@keyframes apparaitreEnHaut {
+  from { opacity: 0; transform: translateY(25px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@-webkit-keyframes apparaitre {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes apparaitre {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@-webkit-keyframes pulsationDefilement {
+  0%, 100% { opacity: 0.4; }
+  50%       { opacity: 1; }
+}
+@keyframes pulsationDefilement {
+  0%, 100% { opacity: 0.4; }
+  50%       { opacity: 1; }
+}
+
+/* ============================
+   RESPONSIVE — BASE
+============================ */
+@media (max-width: 900px) {
+  section {
+    padding: 5rem 2rem;
+  }
+  .separateur {
+    margin: 0 2rem;
+  }
+  body {
+    cursor: auto;
+  }
+  #curseur-point,
+  #curseur-anneau {
+    display: none;
+  }
+}

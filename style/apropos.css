@@ -1,0 +1,209 @@
+/* ============================================================
+   APROPOS.CSS — Section profil, parcours et liens sociaux
+   Portfolio — Aline Rostagnat
+   ============================================================ */
+
+/* ============================
+   SECTION À PROPOS
+============================ */
+#apropos {
+  background: var(--profond);
+  position: relative;
+  overflow: hidden;
+}
+
+#apropos::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 40vw;
+  height: 100%;
+  background: -webkit-radial-gradient(right center, ellipse, rgba(107, 63, 160, 0.12) 0%, transparent 70%);
+  background: radial-gradient(ellipse at right center, rgba(107, 63, 160, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Grille à deux colonnes */
+.grille-apropos {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 5rem 1fr;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: start;
+}
+
+/* ============================
+   TEXTE DE PRÉSENTATION
+============================ */
+.texte-apropos p {
+  font-size: 1.45rem;
+  color: var(--discret);
+  line-height: 1.9;
+  margin-bottom: 1.5rem;
+}
+
+.texte-apropos p strong {
+  color: var(--creme);
+  font-weight: 600;
+}
+
+/* Liens sociaux */
+.rangee-sociale {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.lien-social {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--police-mono);
+  font-size: 1rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--discret);
+  text-decoration: none;
+  padding: 0.6rem 1.2rem;
+  border: 1px solid var(--ligne);
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.lien-social:link,
+.lien-social:visited {
+  color: var(--discret);
+  text-decoration: none;
+}
+
+.lien-social:hover,
+.lien-social:active {
+  color: var(--or);
+  border-color: rgba(201, 168, 76, 0.5);
+  background: rgba(201, 168, 76, 0.05);
+}
+
+.lien-social svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+
+/* ============================
+   FRISE CHRONOLOGIQUE
+============================ */
+.frise-chronologique {
+  position: relative;
+}
+
+.frise-chronologique::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 1px;
+  background: -webkit-linear-gradient(top, var(--or), var(--violet), transparent);
+  background: linear-gradient(to bottom, var(--or), var(--violet), transparent);
+  opacity: 0.4;
+}
+
+.frise-groupe {
+  margin-bottom: 2.5rem;
+}
+
+.frise-categorie {
+  font-family: var(--police-mono);
+  font-size: 0.95rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--or);
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+}
+
+.frise-element {
+  padding: 1.2rem 1.5rem;
+  margin-left: 1.5rem;
+  margin-bottom: 0.8rem;
+  border-left: 2px solid var(--ligne-v);
+  position: relative;
+  background: rgba(255, 255, 255, 0.02);
+  -webkit-transition: background 0.3s, border-color 0.3s;
+  transition: background 0.3s, border-color 0.3s;
+}
+
+/* Losange décoratif sur la ligne */
+.frise-element::before {
+  content: '';
+  position: absolute;
+  left: -5px;
+  top: 50%;
+  -webkit-transform: translateY(-50%) rotate(45deg);
+  transform: translateY(-50%) rotate(45deg);
+  width: 8px;
+  height: 8px;
+  background: var(--vide);
+  border: 1px solid var(--or);
+}
+
+.frise-element:hover {
+  background: rgba(107, 63, 160, 0.08);
+  border-left-color: var(--violet-moyen);
+}
+
+.frise-element h4 {
+  font-family: var(--police-corps);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--creme);
+  margin-bottom: 0.2rem;
+}
+
+.frise-element .frise-lieu {
+  font-size: 1.2rem;
+  color: var(--discret);
+  font-style: italic;
+}
+
+.frise-element .frise-date {
+  font-family: var(--police-mono);
+  font-size: 0.95rem;
+  letter-spacing: 0.1em;
+  color: var(--or);
+  margin-top: 0.4rem;
+}
+
+/* Badge technologique */
+.badge-techno {
+  display: inline-block;
+  font-family: var(--police-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: rgba(107, 63, 160, 0.3);
+  color: var(--violet-clair);
+  padding: 0.15rem 0.5rem;
+  border-radius: 2px;
+  margin-top: 0.5rem;
+}
+
+/* ============================
+   RESPONSIVE À PROPOS
+============================ */
+@media (max-width: 900px) {
+  .grille-apropos {
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
