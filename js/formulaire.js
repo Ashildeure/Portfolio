@@ -1,6 +1,6 @@
 /**
- * formulaire.js — Gestion de l'envoi du formulaire de contact via EmailJS
- * Portfolio — Aline Rostagnat
+ * formulaire.js - Gestion de l'envoi du formulaire de contact via EmailJS
+ * Portfolio - Aline Rostagnat
  *
  * Compatibilité : Chrome, Firefox, Safari, Edge
  * Dépendance : EmailJS (chargé via CDN dans le HTML)
@@ -11,7 +11,7 @@
 
   /* Initialisation d'EmailJS */
   if (typeof emailjs !== 'undefined') {
-    emailjs.init('RmE2VsOQ6crdQFX1L');
+    emailjs.init('clYV_MaSNhAPCYdE9');
   }
 
   var formulaire = document.getElementById('formulaire-contact');
@@ -29,13 +29,13 @@
     bouton.disabled = true;
 
     if (typeof emailjs !== 'undefined') {
-      emailjs.sendForm('service_efxyigi', 'template_rwsyklo', formulaire)
+      emailjs.sendForm('service_qe446jj', 'template_56394hs', formulaire)
         .then(function () {
           bouton.textContent = 'Envoyé ✓';
           formulaire.reset();
         }, function (erreur) {
           console.error('Erreur EmailJS :', erreur);
-          bouton.textContent = 'Erreur — réessayer';
+          bouton.textContent = 'Erreur - réessayer';
           bouton.disabled = false;
         });
     } else {

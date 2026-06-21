@@ -1,6 +1,6 @@
 /* ============================================================
-   PROJETS.CSS — Grille de cartes de projets
-   Portfolio — Aline Rostagnat
+   PROJETS.CSS - Grille de cartes retournables (flip 3D au clic)
+   Portfolio - Aline Rostagnat
    ============================================================ */
 
 /* ============================
@@ -22,7 +22,6 @@
   pointer-events: none;
 }
 
-/* En-tête de la section projets */
 .entete-projets {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -41,91 +40,125 @@
 
 .entete-projets .sous-titre {
   font-size: 1.3rem;
+  color: var(--discret);
+  max-width: 750px;
   line-height: 1.7;
 }
 
+.indice-clic {
+  font-family: var(--police-mono);
+  font-size: 1rem;
+  letter-spacing: 0.15em;
+  color: var(--violet-clair);
+  opacity: 0.7;
+  margin-top: 0.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.indice-clic::before { content: '[ '; color: var(--or); opacity: 0.5; }
+.indice-clic::after  { content: ' ]'; color: var(--or); opacity: 0.5; }
+
 /* ============================
-   GRILLE DES PROJETS
+   GRILLE
 ============================ */
 .grille-projets {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 1.5px 1fr;
+  -ms-grid-columns: 1fr 2rem 1fr;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1.5px;
-  background: var(--ligne);
+  gap: 2rem;
 }
 
 /* ============================
-   CARTE DE PROJET
+   CONTENEUR PERSPECTIVE
 ============================ */
-.carte-projet {
-  background: var(--vide);
-  padding: 3rem;
-  position: relative;
-  overflow: hidden;
-  text-decoration: none;
-  color: inherit;
-  display: block;
-  -webkit-transition: background 0.4s;
-  transition: background 0.4s;
+.carte-conteneur {
+  -webkit-perspective: 1200px;
+  perspective: 1200px;
+  height: 440px;
   cursor: pointer;
 }
 
-/* Superposition dégradé au survol */
-.carte-projet::before {
-  content: '';
-  position: absolute;
-  top: 0; right: 0; bottom: 0; left: 0;
-  background: -webkit-linear-gradient(315deg, rgba(107, 63, 160, 0.1) 0%, rgba(201, 168, 76, 0.05) 100%);
-  background: linear-gradient(135deg, rgba(107, 63, 160, 0.1) 0%, rgba(201, 168, 76, 0.05) 100%);
-  opacity: 0;
-  -webkit-transition: opacity 0.4s;
-  transition: opacity 0.4s;
+/* ============================
+   CARTE RETOURNABLE
+============================ */
+.carte-retournable {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transition: -webkit-transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+  transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
 }
 
-/* Ligne de bas de carte (survol) */
-.carte-projet::after {
+.carte-conteneur.retournee .carte-retournable {
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+
+.carte-conteneur.retournee .arriere-media {
+  display: flex !important;
+}
+
+/* ============================
+   FACES
+============================ */
+.face-avant,
+.face-arriere {
+  position: absolute;
+  inset: 0;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border: 1px solid var(--ligne);
+  overflow: hidden;
+}
+
+/* === FACE AVANT === */
+.face-avant {
+  background: var(--vide);
+  padding: 2.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-transition: background 0.3s, border-color 0.3s;
+  transition: background 0.3s, border-color 0.3s;
+}
+
+.face-avant::after {
   content: '';
   position: absolute;
   bottom: 0; left: 0;
-  width: 0;
-  height: 2px;
+  width: 0; height: 2px;
   background: -webkit-linear-gradient(left, var(--violet), var(--or));
   background: linear-gradient(90deg, var(--violet), var(--or));
   -webkit-transition: width 0.5s var(--transition-fluide);
   transition: width 0.5s var(--transition-fluide);
 }
 
-.carte-projet:hover {
+.carte-conteneur:hover .face-avant {
   background: var(--profond);
+  border-color: rgba(201, 168, 76, 0.3);
 }
 
-.carte-projet:hover::before {
-  opacity: 1;
-}
+.carte-conteneur:hover .face-avant::after { width: 100%; }
 
-.carte-projet:hover::after {
-  width: 100%;
-}
-
-.carte-projet:hover .fleche-projet {
-  -webkit-transform: translate(4px, -4px);
-  transform: translate(4px, -4px);
-  opacity: 1;
-}
-
-.carte-projet:hover .numero-carte {
-  color: var(--or);
-}
-
-/* Numéro de la carte */
 .numero-carte {
   font-family: var(--police-mono);
   font-size: 0.95rem;
   letter-spacing: 0.2em;
   color: var(--ligne-v);
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -139,34 +172,43 @@
   transition: color 0.3s;
 }
 
-/* Flèche de lien */
-.fleche-projet {
-  font-size: 1.2rem;
-  color: var(--or);
-  opacity: 0;
-  -webkit-transition: all 0.3s var(--transition-fluide);
-  transition: all 0.3s var(--transition-fluide);
+.carte-conteneur:hover .numero-carte { color: var(--or); }
+
+.icone-retourner {
+  font-family: var(--police-mono);
+  font-size: 1.6rem;
+  color: var(--violet-clair);
+  opacity: 0.6;
+  -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+  transition: opacity 0.3s, transform 0.3s;
 }
 
-/* Titre du projet */
+.carte-conteneur:hover .icone-retourner {
+  opacity: 1;
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
 .titre-carte {
   font-family: var(--police-titre);
   font-size: 1.8rem;
-  font-weight: 400;
-  letter-spacing: 0.06em;
+  font-weight: 600;
+  letter-spacing: 0.08em;
   color: var(--creme);
   margin-bottom: 1rem;
+  line-height: 1.2;
 }
 
-/* Description du projet */
 .description-carte {
-  font-size: 1.3rem;
+  font-size: 1.1rem;
+  font-weight: 400;
   color: var(--discret);
-  line-height: 1.7;
-  margin-bottom: 1.5rem;
+  line-height: 1.65;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
 }
 
-/* Technologies */
 .pile-technos {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -174,6 +216,7 @@
   gap: 0.5rem;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+  margin-top: 1.5rem;
 }
 
 .etiquette-techno {
@@ -183,10 +226,9 @@
   text-transform: uppercase;
   color: var(--or);
   border: 1px solid rgba(201, 168, 76, 0.3);
-  padding: 0.2rem 0.6rem;
+  padding: 0.2rem 0.7rem;
 }
 
-/* Taille d'équipe */
 .equipe-carte {
   font-family: var(--police-mono);
   font-size: 0.92rem;
@@ -195,18 +237,318 @@
   margin-top: 0.8rem;
 }
 
+/* === FACE ARRIÈRE === */
+.face-arriere {
+  background: var(--profond);
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+  padding: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  gap: 0.9rem;
+  border-color: rgba(107, 63, 160, 0.4);
+  overflow-y: auto;
+}
+
+/* Barre supérieure dégradée style terminal */
+.face-arriere::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: -webkit-linear-gradient(left, var(--violet), var(--or));
+  background: linear-gradient(90deg, var(--violet), var(--or));
+}
+
+.arriere-entete {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.arriere-titre {
+  font-family: var(--police-titre);
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.bouton-fermer {
+  font-family: var(--police-mono);
+  font-size: 0.95rem;
+  color: var(--discret);
+  cursor: pointer;
+  background: none;
+  border: 1px solid var(--ligne-v);
+  padding: 0.2rem 0.6rem;
+  -webkit-transition: color 0.2s, border-color 0.2s;
+  transition: color 0.2s, border-color 0.2s;
+  white-space: nowrap;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+}
+
+.bouton-fermer:hover {
+  color: var(--or);
+  border-color: var(--or);
+}
+
+.arriere-media {
+  width: 100%;
+  border-radius: 2px;
+  overflow: hidden;
+  border: 1px solid var(--ligne-v);
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  display: none;
+  background: var(--profond);
+  position: relative;
+}
+
+.arriere-media img {
+  width: 100%;
+  max-height: 220px;
+  -o-object-fit: contain;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  -webkit-filter: saturate(0.8);
+  filter: saturate(0.8);
+  -webkit-transition: -webkit-filter 0.3s, opacity 0.3s;
+  transition: filter 0.3s, opacity 0.3s;
+  cursor: -webkit-zoom-in;
+  cursor: zoom-in;
+}
+
+.arriere-media img:hover {
+  -webkit-filter: saturate(1);
+  filter: saturate(1);
+  opacity: 0.9;
+}
+
+/* Indicateur loupe */
+.arriere-media::after {
+  content: '⊕';
+  position: absolute;
+  bottom: 0.4rem;
+  right: 0.5rem;
+  font-size: 1rem;
+  color: var(--or);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.arriere-media iframe {
+  width: 100%;
+  height: 150px;
+  border: none;
+  display: block;
+}
+
+.arriere-competences { flex: 1; }
+
 /* ============================
-   RESPONSIVE PROJETS
+   LIGHTBOX
+============================ */
+#lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9995;
+  background: rgba(0, 0, 0, 0.9);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  cursor: zoom-out;
+}
+
+#lightbox.ouverte {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#lightbox img {
+  max-width: 90vw;
+  max-height: 88vh;
+  -o-object-fit: contain;
+  object-fit: contain;
+  display: block;
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  -webkit-box-shadow: 0 0 60px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.8);
+  cursor: zoom-out;
+}
+
+#lightbox-fermer {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  font-family: var(--police-mono);
+  font-size: 0.9rem;
+  letter-spacing: 0.15em;
+  color: rgba(201, 168, 76, 0.7);
+  background: none;
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  padding: 0.3rem 0.8rem;
+  cursor: pointer;
+  -webkit-transition: color 0.2s, border-color 0.2s;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+#lightbox-fermer:hover {
+  color: var(--or);
+  border-color: var(--or);
+}
+
+/* ============================
+   RESPONSIVE
+============================ */
+
+.arriere-sous-titre {
+  font-family: var(--police-mono);
+  font-size: 1.12rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--or);
+  margin-bottom: 0.4rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.arriere-sous-titre::before { content: '//'; color: var(--violet-clair); opacity: 0.7; }
+
+.arriere-liste {
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 0.7rem;
+}
+
+.arriere-liste li {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--discret);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  gap: 0.5rem;
+  line-height: 1.5;
+}
+
+.arriere-liste li::before {
+  content: '›';
+  color: var(--violet-clair);
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+}
+
+.arriere-pied {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: auto;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--ligne);
+}
+
+.lien-github {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--police-mono);
+  font-size: 0.95rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--vide);
+  background: var(--or);
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  border: 1px solid var(--or);
+  -webkit-transition: background 0.3s, color 0.3s;
+  transition: background 0.3s, color 0.3s;
+}
+
+.lien-github:link,
+.lien-github:visited { color: var(--vide); }
+
+.lien-github:hover {
+  background: transparent;
+  color: var(--or);
+}
+
+.lien-github svg { width: 14px; height: 14px; fill: currentColor; }
+
+.sans-github {
+  font-family: var(--police-mono);
+  font-size: 0.92rem;
+  color: var(--discret);
+  font-style: italic;
+}
+
+.arriere-equipe {
+  font-family: var(--police-mono);
+  font-size: 0.95rem;
+  letter-spacing: 0.1em;
+  color: var(--violet-clair);
+}
+
+/* ============================
+   RESPONSIVE
 ============================ */
 @media (max-width: 900px) {
   .grille-projets {
     -ms-grid-columns: 1fr;
     grid-template-columns: 1fr;
   }
+  .carte-conteneur { height: 460px; }
 }
 
 @media (max-width: 600px) {
-  .carte-projet {
-    padding: 2rem 1.5rem;
-  }
+  .carte-conteneur { height: 500px; }
+  .face-avant, .face-arriere { padding: 1.5rem; }
 }

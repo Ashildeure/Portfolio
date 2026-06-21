@@ -1,10 +1,10 @@
 /* ============================================================
-   HERO.CSS — Section d'accueil / introduction
-   Portfolio — Aline Rostagnat
+   moi.CSS - Section d'accueil / introduction
+   Portfolio - Aline Rostagnat
    ============================================================ */
 
 /* ============================
-   SECTION HERO
+   SECTION moi
 ============================ */
 #accueil {
   min-height: 100vh;
@@ -44,7 +44,7 @@
 }
 
 /* Ligne verticale décorative */
-.hero-ligne-verticale {
+.moi-ligne-verticale {
   position: absolute;
   top: 0; left: 5rem; bottom: 0;
   width: 1px;
@@ -53,15 +53,15 @@
   opacity: 0.2;
 }
 
-/* Conteneur du contenu hero */
-.hero-contenu {
+/* Conteneur du contenu moi */
+.moi-contenu {
   position: relative;
   z-index: 1;
   max-width: 900px;
 }
 
 /* Sous-titre chapeau */
-.hero-chapeau {
+.moi-chapeau {
   font-family: var(--police-mono);
   font-size: 1rem;
   text-transform: uppercase;
@@ -79,7 +79,7 @@
   animation: apparaitreEnHaut 0.8s var(--transition-fluide) 0.2s forwards;
 }
 
-.hero-chapeau::before {
+.moi-chapeau::before {
   content: '';
   width: 60px;
   height: 1px;
@@ -88,12 +88,12 @@
 }
 
 /* Nom principal */
-.hero-nom {
+.moi-nom {
   font-family: var(--police-titre);
   font-size: clamp(3rem, 8vw, 7.5rem);
-  font-weight: 400;
+  font-weight: 700;
   line-height: 0.95;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
   color: var(--creme);
   margin-bottom: 0.3em;
   opacity: 0;
@@ -101,19 +101,20 @@
   animation: apparaitreEnHaut 0.9s var(--transition-fluide) 0.4s forwards;
 }
 
-.hero-nom em {
-  font-style: italic;
+.moi-nom em {
+  font-style: normal;
+  font-weight: 400;
   color: var(--or-clair);
 }
 
 /* Métier */
-.hero-metier {
+.moi-metier {
   font-family: var(--police-corps);
   font-size: clamp(1.3rem, 2.5vw, 1.85rem);
   font-weight: 300;
-  font-style: italic;
   color: var(--violet-clair);
-  letter-spacing: 0.05em;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
   margin-bottom: 2rem;
   opacity: 0;
   -webkit-animation: apparaitreEnHaut 0.9s var(--transition-fluide) 0.55s forwards;
@@ -121,11 +122,11 @@
 }
 
 /* Description courte */
-.hero-description {
+.moi-description {
   font-size: 1.45rem;
   font-weight: 300;
   color: var(--discret);
-  max-width: 520px;
+  max-width: 900px;
   line-height: 1.8;
   margin-bottom: 3rem;
   opacity: 0;
@@ -134,7 +135,7 @@
 }
 
 /* Boutons d'action */
-.hero-actions {
+.moi-actions {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -147,7 +148,7 @@
 }
 
 /* Indicateur de défilement */
-.hero-defilement {
+.moi-defilement {
   position: absolute;
   bottom: 3rem;
   left: 50%;
@@ -169,7 +170,7 @@
   animation: apparaitre 1s ease 1.5s forwards;
 }
 
-.hero-defilement span {
+.moi-defilement span {
   font-family: var(--police-mono);
   font-size: 0.88rem;
   letter-spacing: 0.2em;
@@ -187,7 +188,7 @@
 }
 
 /* ============================
-   RESPONSIVE HERO
+   RESPONSIVE moi
 ============================ */
 @media (max-width: 900px) {
   #accueil {
@@ -196,13 +197,13 @@
     min-height: -webkit-fill-available;
   }
 
-  .hero-ligne-verticale {
+  .moi-ligne-verticale {
     left: 1rem;
   }
 }
 
 @media (max-width: 600px) {
-  .hero-nom {
+  .moi-nom {
     line-height: 1.05;
   }
 }

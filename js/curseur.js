@@ -1,6 +1,6 @@
 /**
- * curseur.js — Curseur personnalisé animé
- * Portfolio — Aline Rostagnat
+ * curseur.js - Curseur personnalisé animé
+ * Portfolio - Aline Rostagnat
  *
  * Compatibilité : Chrome, Firefox, Safari, Edge
  * Désactivé automatiquement sur mobile (touch)

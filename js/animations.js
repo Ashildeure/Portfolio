@@ -1,7 +1,7 @@
 /**
- * animations.js — Apparition des éléments au défilement (IntersectionObserver)
- *                 + effet parallaxe subtil sur le hero
- * Portfolio — Aline Rostagnat
+ * animations.js - Apparition des éléments au défilement (IntersectionObserver)
+ *                 + effet parallaxe subtil sur le moi
+ * Portfolio - Aline Rostagnat
  *
  * Compatibilité : Chrome, Firefox, Safari (14+), Edge
  * Fallback pour les navigateurs sans IntersectionObserver : affichage immédiat
@@ -38,7 +38,7 @@
   }
 
   /* ==============================
-     PARALLAXE HERO (subtil)
+     PARALLAXE moi (subtil)
   ============================== */
   var sectionAccueil = document.getElementById('accueil');
 

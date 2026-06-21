@@ -1,6 +1,6 @@
 /**
- * navigation.js — Menu mobile + mise en évidence du lien actif au défilement
- * Portfolio — Aline Rostagnat
+ * navigation.js - Menu mobile + mise en évidence du lien actif au défilement
+ * Portfolio - Aline Rostagnat
  *
  * Compatibilité : Chrome, Firefox, Safari, Edge
  */

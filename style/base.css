@@ -1,10 +1,10 @@
 /* ============================================================
-   BASE.CSS — Variables, Reset, Typographie, Composants globaux
-   Portfolio — Aline Rostagnat
+   BASE.CSS - Variables, Reset, Typographie, Composants globaux
+   Portfolio - Aline Rostagnat
    ============================================================ */
 
 /* ============================
-   VARIABLES / JETONS DE DESIGN
+   VARIABLES / JETONS DE DESIGN - THÈME SOMBRE (défaut)
 ============================ */
 :root {
   --vide:           #0d0a14;
@@ -21,10 +21,66 @@
   --discret:        #9990bb;
   --ligne:          rgba(201, 168, 76, 0.25);
   --ligne-v:        rgba(107, 63, 160, 0.4);
-  --police-titre:   'Cinzel', serif;
-  --police-corps:   'Cormorant Garamond', serif;
-  --police-mono:    'DM Mono', monospace;
+  --police-titre:   'Rajdhani', sans-serif;
+  --police-corps:   'Inter', sans-serif;
+  --police-mono:    'JetBrains Mono', monospace;
   --transition-fluide: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ============================
+   THÈME LUMINEUX — Papier chaud
+   Fonds : beige rosé / papier ancien
+   Accents : cuivre/or tamisé
+   Couleur franche : mauve poudré
+============================ */
+[data-theme="clair"] {
+  --vide:           #f0e6da;
+  --profond:        #e8d9cb;
+  --surface:        #deccbc;
+  --carte:          #d4bfad;
+  --violet:         #9e7e8a;
+  --violet-moyen:   #b99aa8;
+  --violet-clair:   #7a5a68;
+  --or:             #a0723a;
+  --or-clair:       #7a5228;
+  --or-pale:        #5c3d1c;
+  --creme:          #2e1e10;
+  --discret:        #6b5448;
+  --ligne:          rgba(160, 114, 58, 0.25);
+  --ligne-v:        rgba(158, 126, 138, 0.3);
+}
+
+/* Transition douce entre les thèmes */
+body,
+body * {
+  -webkit-transition:
+    background-color 0.4s ease,
+    color 0.4s ease,
+    border-color 0.4s ease,
+    box-shadow 0.4s ease;
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease,
+    border-color 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+/* Exceptions : pas de transition sur les animations et transforms */
+body *[class*="apparition"],
+body *[class*="moi-"],
+.carte-retournable {
+  -webkit-transition:
+    background-color 0.4s ease,
+    color 0.4s ease,
+    border-color 0.4s ease,
+    opacity 0.8s var(--transition-fluide),
+    -webkit-transform 0.8s var(--transition-fluide);
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease,
+    border-color 0.4s ease,
+    opacity 0.8s var(--transition-fluide),
+    transform 0.8s var(--transition-fluide);
 }
 
 /* ============================
@@ -49,7 +105,8 @@ body {
   color: var(--creme);
   font-family: var(--police-corps);
   font-size: 22px;
-  line-height: 1.7;
+  font-weight: 400;
+  line-height: 1.65;
   overflow-x: hidden;
   cursor: none;
   /* Rendu de police optimisé */
@@ -76,6 +133,24 @@ a:visited {
 ::selection {
   background: var(--or);
   color: var(--vide);
+}
+
+/* ============================
+   EFFET SCANLINES (écho informatique)
+============================ */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 3px,
+    rgba(0, 0, 0, 0.03) 3px,
+    rgba(0, 0, 0, 0.03) 4px
+  );
+  pointer-events: none;
+  z-index: 9989;
 }
 
 /* ============================
@@ -219,8 +294,8 @@ section {
 .titre-section {
   font-family: var(--police-titre);
   font-size: clamp(2rem, 4vw, 3.5rem);
-  font-weight: 400;
-  letter-spacing: 0.06em;
+  font-weight: 600;
+  letter-spacing: 0.08em;
   line-height: 1.1;
   color: var(--creme);
   margin-bottom: 1rem;
@@ -303,6 +378,39 @@ section {
 }
 
 /* ============================
+   GRILLE DE FOND (écho terminal/grille de dev)
+============================ */
+#accueil,
+#projets,
+#contact {
+  background-image:
+    linear-gradient(rgba(107, 63, 160, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(107, 63, 160, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* ============================
+   CURSEUR CLIGNOTANT (style terminal) sur les titres
+============================ */
+.moi-nom::after {
+  content: '_';
+  color: var(--or);
+  opacity: 1;
+  -webkit-animation: clignote 1.1s step-end infinite;
+  animation: clignote 1.1s step-end infinite;
+  font-weight: 300;
+}
+
+@-webkit-keyframes clignote {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+@keyframes clignote {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* ============================
    KEYFRAMES GLOBALES
 ============================ */
 @-webkit-keyframes apparaitreEnHaut {
@@ -333,7 +441,91 @@ section {
 }
 
 /* ============================
-   RESPONSIVE — BASE
+   OVERRIDES THÈME CLAIR
+   (couleurs codées en dur dans les autres CSS)
+============================ */
+
+/* Nav */
+[data-theme="clair"] #barre-nav {
+  background: rgba(247, 244, 238, 0.9);
+}
+[data-theme="clair"] #menu-mobile {
+  background: rgba(247, 244, 238, 0.98);
+}
+
+/* Scanlines désactivées en thème clair */
+[data-theme="clair"] body::after {
+  display: none;
+}
+
+/* Grille de fond désactivée en thème clair */
+[data-theme="clair"] #accueil,
+[data-theme="clair"] #projets,
+[data-theme="clair"] #contact {
+  background-image: none;
+}
+
+/* Nav */
+[data-theme="clair"] #barre-nav {
+  background: rgba(240, 230, 218, 0.92);
+}
+[data-theme="clair"] #menu-mobile {
+  background: rgba(240, 230, 218, 0.98);
+}
+
+/* Faces des cartes */
+[data-theme="clair"] .face-avant {
+  background: #f0e6da;
+}
+[data-theme="clair"] .carte-conteneur:hover .face-avant {
+  background: #e8d9cb;
+}
+[data-theme="clair"] .face-arriere {
+  background: #e8d9cb;
+}
+
+/* Éléments frise */
+[data-theme="clair"] .frise-element {
+  background: rgba(0, 0, 0, 0.03);
+}
+[data-theme="clair"] .frise-element:hover {
+  background: rgba(158, 126, 138, 0.08);
+}
+[data-theme="clair"] .frise-element::before {
+  background: #f0e6da;
+}
+
+/* Groupes compétences */
+[data-theme="clair"] .groupe-competence:hover {
+  background: rgba(160, 114, 58, 0.05);
+}
+
+/* Champs de formulaire */
+[data-theme="clair"] .champ-formulaire input,
+[data-theme="clair"] .champ-formulaire textarea {
+  background: rgba(0, 0, 0, 0.05);
+  color: #2e1e10;
+}
+[data-theme="clair"] .champ-formulaire input:focus,
+[data-theme="clair"] .champ-formulaire textarea:focus {
+  background: rgba(160, 114, 58, 0.07);
+}
+
+/* Lien GitHub & bouton envoi */
+[data-theme="clair"] .lien-github:link,
+[data-theme="clair"] .lien-github:visited,
+[data-theme="clair"] .bouton-envoi {
+  color: #f0e6da;
+}
+
+/* Curseur */
+[data-theme="clair"] #curseur-point {
+  background: var(--or);
+  mix-blend-mode: multiply;
+}
+
+/* ============================
+   RESPONSIVE - BASE
 ============================ */
 @media (max-width: 900px) {
   section {

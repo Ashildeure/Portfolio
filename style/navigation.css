@@ -1,6 +1,6 @@
 /* ============================================================
-   NAVIGATION.CSS — Barre de navigation fixe + menu mobile
-   Portfolio — Aline Rostagnat
+   NAVIGATION.CSS - Barre de navigation fixe + menu mobile
+   Portfolio - Aline Rostagnat
    ============================================================ */
 
 /* ============================
@@ -84,6 +84,53 @@
 
 .liens-nav a:hover::after {
   width: 100%;
+}
+
+/* ============================
+   BOUTON THÈME
+============================ */
+.nav-droite {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.bouton-theme {
+  background: none;
+  border: 1px solid var(--ligne);
+  color: var(--or);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  -webkit-transition: border-color 0.3s, background 0.3s, -webkit-transform 0.5s;
+  transition: border-color 0.3s, background 0.3s, transform 0.5s;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+}
+
+.bouton-theme:hover {
+  border-color: var(--or);
+  background: rgba(201, 168, 76, 0.1);
+}
+
+.bouton-theme.actif {
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
 /* ============================

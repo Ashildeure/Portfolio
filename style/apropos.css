@@ -1,6 +1,6 @@
 /* ============================================================
-   APROPOS.CSS — Section profil, parcours et liens sociaux
-   Portfolio — Aline Rostagnat
+   APROPOS.CSS - Section profil, parcours et liens sociaux
+   Portfolio - Aline Rostagnat
    ============================================================ */
 
 /* ============================
@@ -39,9 +39,10 @@
    TEXTE DE PRÉSENTATION
 ============================ */
 .texte-apropos p {
-  font-size: 1.45rem;
+  font-size: 1.2rem;
+  font-weight: 400;
   color: var(--discret);
-  line-height: 1.9;
+  line-height: 1.75;
   margin-bottom: 1.5rem;
 }
 
@@ -162,17 +163,16 @@
 }
 
 .frise-element h4 {
-  font-family: var(--police-corps);
-  font-size: 1.4rem;
+  font-family: var(--police-titre);
+  font-size: 1.3rem;
   font-weight: 600;
   color: var(--creme);
   margin-bottom: 0.2rem;
 }
 
 .frise-element .frise-lieu {
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: var(--discret);
-  font-style: italic;
 }
 
 .frise-element .frise-date {

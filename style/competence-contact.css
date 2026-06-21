@@ -1,8 +1,8 @@
 /* ============================================================
-   COMPETENCES.CSS — Section compétences techniques
-   CONTACT.CSS    — Section formulaire de contact
-   PIED-PAGE.CSS  — Pied de page
-   Portfolio — Aline Rostagnat
+   COMPETENCES.CSS - Section compétences techniques
+   CONTACT.CSS    - Section formulaire de contact
+   PIED-PAGE.CSS  - Pied de page
+   Portfolio - Aline Rostagnat
    ============================================================ */
 
 /* ============================================================
@@ -93,7 +93,8 @@
 }
 
 .liste-competences li {
-  font-size: 1.3rem;
+  font-size: 1.1rem;
+  font-weight: 400;
   color: var(--discret);
   display: -webkit-box;
   display: -ms-flexbox;
@@ -171,12 +172,12 @@
 /* Citation d'accroche */
 .accroche-contact {
   font-family: var(--police-corps);
-  font-size: clamp(1.5rem, 3vw, 2.2rem);
-  font-style: italic;
+  font-size: 1.4rem;
   font-weight: 300;
   color: var(--creme);
   line-height: 1.5;
   margin-bottom: 3rem;
+  letter-spacing: 0.02em;
 }
 
 .accroche-contact em {
@@ -227,7 +228,7 @@
   color: var(--creme);
   padding: 0.9rem 1.2rem;
   font-family: var(--police-corps);
-  font-size: 1.35rem;
+  font-size: 1.1rem;
   outline: none;
   resize: none;
   -webkit-transition: border-color 0.3s, background 0.3s;

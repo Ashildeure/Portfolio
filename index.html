@@ -9,14 +9,25 @@
   <!-- Compatibilité Internet Explorer / Edge (ancien) -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-  <title>Aline Rostagnat — Portfolio</title>
+  <title>Aline Rostagnat - Portfolio</title>
 
   <!-- Polices Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
 
-  <!-- Feuilles de style -->
+  <!-- Thème : chargé en premier pour éviter le flash au chargement -->
+  <script>
+    (function() {
+      var t = null;
+      try { t = localStorage.getItem('portfolio-theme'); } catch(e) {}
+      if (!t) {
+        t = (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches)
+          ? 'clair' : 'sombre';
+      }
+      if (t === 'clair') document.documentElement.setAttribute('data-theme', 'clair');
+    })();
+  </script>
   <link rel="stylesheet" href="style/base.css" />
   <link rel="stylesheet" href="style/navigation.css" />
   <link rel="stylesheet" href="style/hero.css" />
@@ -45,11 +56,16 @@
       <li><a href="#contact">Contact</a></li>
     </ul>
 
-    <button class="bouton-menu" id="bouton-menu" aria-label="Ouvrir le menu" aria-expanded="false">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+    <div class="nav-droite">
+      <button class="bouton-theme" id="bouton-theme" aria-label="Changer de thème" title="Thème lumineux / sombre">
+        <span class="icone-theme" aria-hidden="true">◐</span>
+      </button>
+      <button class="bouton-menu" id="bouton-menu" aria-label="Ouvrir le menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
   </nav>
 
   <!-- Menu mobile -->
@@ -61,34 +77,34 @@
   </div>
 
   <!-- =====================================================
-       SECTION ACCUEIL / HERO
+       SECTION ACCUEIL / moi
   ===================================================== -->
   <section id="accueil" aria-label="Introduction">
-    <div class="hero-ligne-verticale" aria-hidden="true"></div>
+    <div class="moi-ligne-verticale" aria-hidden="true"></div>
 
-    <div class="hero-contenu">
-      <div class="hero-chapeau">Portfolio · 2026</div>
+    <div class="moi-contenu">
+      <div class="moi-chapeau">Portfolio · 2026</div>
 
-      <h1 class="hero-nom">
+      <h1 class="moi-nom">
         Aline<br>
         <em>Rostagnat</em>
       </h1>
 
-      <p class="hero-metier">Développeuse Full Stack</p>
+      <p class="moi-metier">Développeuse Full Stack</p>
 
-      <p class="hero-description">
-        Étudiante en informatique, je me forme à la conception d'applications
-        web et mobiles — entre rigueur académique et expériences de terrain.
+      <p class="moi-description">
+        Étudiante en informatique, j’aime concevoir des applications web et mobiles utiles, simples à utiliser et bien pensées.<br>
+        Je développe mes compétences à travers mes études et mes expériences en entreprise.
       </p>
 
-      <div class="hero-actions">
+      <div class="moi-actions">
         <a class="btn-principal" href="design/img/CV_aline_rostagnat.pdf" download>Télécharger le CV</a>
         <a class="btn-fantome" href="#projets">Voir mes projets</a>
       </div>
     </div>
 
     <!-- Indicateur de défilement -->
-    <div class="hero-defilement" aria-hidden="true">
+    <div class="moi-defilement" aria-hidden="true">
       <div class="ligne-defilement"></div>
       <span>Défiler</span>
     </div>
@@ -115,18 +131,18 @@
       <div class="texte-apropos apparition">
         <div class="etiquette-section">À propos</div>
         <h2 class="titre-section">
-          Créative,<br>
-          <em>curieuse</em>, engagée
+          Curieuse,<br>
+          <em>Créative</em>, impliquées
         </h2>
 
         <p>
-          Je m'appelle <strong>Aline Rostagnat</strong>, étudiante en troisième année de
+          Je m'appelle <strong>Aline Rostagnat</strong> et je suis actuellement étudiante en troisième année de
           Bachelor Universitaire de Technologie en Informatique à l'IUT2 de Grenoble.
         </p>
         <p>
-          Je me forme au développement <strong>full stack</strong> — des interfaces pensées
-          pour l'utilisateur jusqu'à l'architecture back-end. Toujours prête à apprendre
-          et à relever de nouveaux défis.
+          Je me forme au développement <strong>full stack</strong>, avec une préférence pour les projets où l’on peut réfléchir à l’expérience utilisateur 
+          tout en construisant une application solide côté technique.
+          J’aime apprendre de nouvelles choses, travailler en équipe et concrétiser des idées à travers des projets utiles.
         </p>
 
         <div class="rangee-sociale">
@@ -156,14 +172,14 @@
             <h3>Alternance - Développement Full Stack</h3>
             <div class="frise-lieu">MVP · Grenoble</div>
             <div class="frise-date">2025 → Maintenant</div>
-            <div class="badge-techno">PHP · JS · SQL · HTML · CSS</div>
+            <div class="badge-techno">PHP · JS · SQL · HTML · CSS · Outils & Framework internes</div>
           </div>
 
           <div class="frise-element">
             <h3>Stage - Développement Full Stack</h3>
             <div class="frise-lieu">MVP · Grenoble</div>
             <div class="frise-date">04/2025 → 06/2025</div>
-            <div class="badge-techno">PHP · JS · SQL · HTML · CSS</div>
+            <div class="badge-techno">PHP · JS · SQL · HTML · CSS · Outils & Framework internes</div>
           </div>
         </div>
 
@@ -201,71 +217,232 @@
   <!-- =====================================================
        SECTION PROJETS
   ===================================================== -->
+  <!--  À terme générée dynamiquement -->
   <section id="projets" aria-label="Mes projets">
 
     <div class="entete-projets apparition">
       <div>
         <div class="etiquette-section">Réalisations</div>
         <h2 class="titre-section">Mes <em>projets</em></h2>
+        <p class="indice-clic">cliquer sur une carte pour les détails</p>
       </div>
       <p class="sous-titre">
-        Projets académiques et personnels illustrant mes compétences en développement et conception.
+        Une sélection de projets réalisés pendant mes études et mon temps personnel, autour du développement web, mobile et logiciel.
       </p>
     </div>
 
     <div class="grille-projets">
 
-      <a class="carte-projet apparition" href="projets/mon-carnet-de-stage.html" style="-webkit-transition-delay:0.05s; transition-delay:0.05s;">
-        <div class="numero-carte">01 <span class="fleche-projet" aria-hidden="true">↗</span></div>
-        <h3 class="titre-carte">Mon Carnet de Stage</h3>
-        <p class="description-carte">Amélioration d'une application mobile dédiée au suivi de candidatures de stage pour étudiants. Axé sur la qualité et les tests.</p>
-        <div class="pile-technos">
-          <span class="etiquette-techno">Android</span>
-          <span class="etiquette-techno">Symfony</span>
-          <span class="etiquette-techno">SQL</span>
-          <span class="etiquette-techno">CSS</span>
+      <!-- ── CARTE 01 : Mon Carnet de Stage ── -->
+      <div class="carte-conteneur apparition" style="-webkit-transition-delay:0.05s; transition-delay:0.05s;"
+           role="button" tabindex="0" aria-label="Mon Carnet de Stage — cliquer pour les détails">
+        <div class="carte-retournable">
+ 
+          <!-- Face avant -->
+          <div class="face-avant">
+            <div class="numero-carte">01 <span class="icone-retourner" aria-hidden="true">⟳</span></div>
+            <h3 class="titre-carte">Mon Carnet de Stage</h3>
+            <p class="description-carte">Reprise et amélioration d’une application mobile permettant aux étudiants de suivre leurs candidatures de stage.</p>
+            <div class="pile-technos">
+              <span class="etiquette-techno">Android</span>
+              <span class="etiquette-techno">Symfony</span>
+              <span class="etiquette-techno">SQL</span>
+              <span class="etiquette-techno">CSS</span>
+            </div>
+            <div class="equipe-carte">Équipe de 5</div>
+          </div>
+ 
+          <!-- Face arrière -->
+          <div class="face-arriere">
+            <div class="arriere-entete">
+              <div class="arriere-titre">Mon Carnet de Stage</div>
+              <button class="bouton-fermer" aria-label="Refermer la carte">✕ Fermer</button>
+            </div>
+            <div class="arriere-media">
+              <img src="style/img/mcds-avant.png" alt="Mon Carnet de Stage — aperçu de l'application mobile améliorée" />
+              <img src="style/img/mcds-apres.png" alt="Mon Carnet de Stage — aperçu de l'application mobile améliorée" />
+            </div>
+            <div class="arriere-competences">
+              <div class="arriere-sous-titre">Compétences</div>
+              <ul class="arriere-liste">
+                <li>Faire évoluer une application existante</li>
+                <li>Mettre en place et réaliser des tests</li>
+                <li>Analyser les besoins techniques du projet</li>
+              </ul>
+              <div class="arriere-sous-titre">Mes contributions</div>
+              <ul class="arriere-liste">
+                <li>Développement des fonctionnalités liées aux offres et candidatures</li>
+                <li>Réalisation des tests fonctionnels et utilisateurs</li>
+              </ul>
+            </div>
+            <div class="arriere-pied">
+              <span class="sans-github">Projet privé</span>
+              <span class="arriere-equipe">Équipe de 5</span>
+            </div>
+          </div>
+ 
         </div>
-        <div class="equipe-carte">Équipe de 5</div>
-      </a>
-
-      <a class="carte-projet apparition" href="projets/notadomus.html" style="-webkit-transition-delay:0.1s; transition-delay:0.1s;">
-        <div class="numero-carte">02 <span class="fleche-projet" aria-hidden="true">↗</span></div>
-        <h3 class="titre-carte">NotaDomus</h3>
-        <p class="description-carte">Carte interactive de valorisation du patrimoine culturel français — avec système social (commentaires, notations, amis).</p>
-        <div class="pile-technos">
-          <span class="etiquette-techno">PHP</span>
-          <span class="etiquette-techno">JavaScript</span>
-          <span class="etiquette-techno">HTML</span>
-          <span class="etiquette-techno">CSS</span>
+      </div>
+ 
+      <!-- ── CARTE 02 : NotaDomus ── -->
+      <div class="carte-conteneur apparition" style="-webkit-transition-delay:0.1s; transition-delay:0.1s;"
+           role="button" tabindex="0" aria-label="NotaDomus — cliquer pour les détails">
+        <div class="carte-retournable">
+ 
+          <!-- Face avant -->
+          <div class="face-avant">
+            <div class="numero-carte">02 <span class="icone-retourner" aria-hidden="true">⟳</span></div>
+            <h3 class="titre-carte">NotaDomus</h3>
+            <p class="description-carte">Site web autour du patrimoine culturel français avec une carte interactive et des fonctionnalités sociales.</p>
+            <div class="pile-technos">
+              <span class="etiquette-techno">PHP</span>
+              <span class="etiquette-techno">JavaScript</span>
+              <span class="etiquette-techno">HTML</span>
+              <span class="etiquette-techno">CSS</span>
+            </div>
+            <div class="equipe-carte">Équipe de 7</div>
+          </div>
+ 
+          <!-- Face arrière -->
+          <div class="face-arriere">
+            <div class="arriere-entete">
+              <div class="arriere-titre">NotaDomus</div>
+              <button class="bouton-fermer" aria-label="Refermer la carte">✕ Fermer</button>
+            </div>
+            <div class="arriere-media">
+              <iframe src="https://www.youtube.com/embed/K53gx4snMG8"
+                title="Démonstration NotaDomus" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="arriere-competences">
+              <div class="arriere-sous-titre">Compétences</div>
+              <ul class="arriere-liste">
+                <li>Rédaction des besoins fonctionnels</li>
+                <li>Conception d’une base de données relationnelle</li>
+                <li>Organisation et suivi du projet en équipe</li>
+              </ul>
+              <div class="arriere-sous-titre">Mes contributions</div>
+              <ul class="arriere-liste">
+                <li>Création des maquettes et intégration HTML/CSS</li>
+                <li>Développement des fonctionnalités sociales (commentaires, modération, relations)</li>
+              </ul>
+            </div>
+            <div class="arriere-pied">
+              <a class="lien-github" href="https://github.com/Ashildeure/NotaDomus_Student-Project" target="_blank" rel="noopener noreferrer">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/></svg>
+                GitHub
+              </a>
+              <span class="arriere-equipe">Équipe de 7</span>
+            </div>
+          </div>
+ 
         </div>
-        <div class="equipe-carte">Équipe de 7</div>
-      </a>
-
-      <a class="carte-projet apparition" href="projets/myamiibolist.html" style="-webkit-transition-delay:0.15s; transition-delay:0.15s;">
-        <div class="numero-carte">03 <span class="fleche-projet" aria-hidden="true">↗</span></div>
-        <h3 class="titre-carte">MyAmiiboList</h3>
-        <p class="description-carte">Journal interactif des figurines amiibos via API — filtres avancés, liste de favoris et collection personnelle.</p>
-        <div class="pile-technos">
-          <span class="etiquette-techno">JavaScript</span>
-          <span class="etiquette-techno">HTML</span>
-          <span class="etiquette-techno">CSS</span>
+      </div>
+ 
+      <!-- ── CARTE 03 : MyAmiiboList ── -->
+      <div class="carte-conteneur apparition" style="-webkit-transition-delay:0.15s; transition-delay:0.15s;"
+           role="button" tabindex="0" aria-label="MyAmiiboList — cliquer pour les détails">
+        <div class="carte-retournable">
+ 
+          <!-- Face avant -->
+          <div class="face-avant">
+            <div class="numero-carte">03 <span class="icone-retourner" aria-hidden="true">⟳</span></div>
+            <h3 class="titre-carte">MyAmiiboList</h3>
+            <p class="description-carte">Application web utilisant une API pour explorer, filtrer et gérer une collection de figurines amiibo.</p>
+            <div class="pile-technos">
+              <span class="etiquette-techno">JavaScript</span>
+              <span class="etiquette-techno">HTML</span>
+              <span class="etiquette-techno">CSS</span>
+            </div>
+            <div class="equipe-carte">Équipe de 2</div>
+          </div>
+ 
+          <!-- Face arrière -->
+          <div class="face-arriere">
+            <div class="arriere-entete">
+              <div class="arriere-titre">MyAmiiboList</div>
+              <button class="bouton-fermer" aria-label="Refermer la carte">✕ Fermer</button>
+            </div>
+            <div class="arriere-media">
+              <img src="style/img/myAmiiboMain.png" alt="MyAmiiboList — page principale de l'application" />
+            </div>
+            <div class="arriere-competences">
+              <div class="arriere-sous-titre">Compétences</div>
+              <ul class="arriere-liste">
+                <li>Récupération et affichage de données via API</li>
+                <li>Conception d’interfaces accessibles et lisibles</li>
+              </ul>
+              <div class="arriere-sous-titre">Mes contributions</div>
+              <ul class="arriere-liste">
+                <li>Conception des maquettes et intégration front-end</li>
+                <li>Développement du système de collection personnelle</li>
+              </ul>
+            </div>
+            <div class="arriere-pied">
+              <a class="lien-github" href="https://github.com/Ashildeure/MyAmiiboList_Student-Project" target="_blank" rel="noopener noreferrer">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/></svg>
+                GitHub
+              </a>
+              <span class="arriere-equipe">Équipe de 2</span>
+            </div>
+          </div>
+ 
         </div>
-        <div class="equipe-carte">Équipe de 2</div>
-      </a>
-
-      <a class="carte-projet apparition" href="projets/circus-planner.html" style="-webkit-transition-delay:0.2s; transition-delay:0.2s;">
-        <div class="numero-carte">04 <span class="fleche-projet" aria-hidden="true">↗</span></div>
-        <h3 class="titre-carte">Circus Planner</h3>
-        <p class="description-carte">Application lourde de gestion d'événements pour directeurs de cirque — planification de représentations, numéros et acteurs.</p>
-        <div class="pile-technos">
-          <span class="etiquette-techno">Java</span>
-          <span class="etiquette-techno">XML</span>
-          <span class="etiquette-techno">CSS</span>
+      </div>
+ 
+      <!-- ── CARTE 04 : Circus Planner ── -->
+      <div class="carte-conteneur apparition" style="-webkit-transition-delay:0.2s; transition-delay:0.2s;"
+           role="button" tabindex="0" aria-label="Circus Planner — cliquer pour les détails">
+        <div class="carte-retournable">
+ 
+          <!-- Face avant -->
+          <div class="face-avant">
+            <div class="numero-carte">04 <span class="icone-retourner" aria-hidden="true">⟳</span></div>
+            <h3 class="titre-carte">Circus Planner</h3>
+            <p class="description-carte">Application de gestion destinée à organiser des spectacles, des artistes et des représentations dans un cirque.</p>            <div class="pile-technos">
+              <span class="etiquette-techno">Java</span>
+              <span class="etiquette-techno">XML</span>
+              <span class="etiquette-techno">CSS</span>
+            </div>
+            <div class="equipe-carte">Équipe de 5</div>
+          </div>
+ 
+          <!-- Face arrière -->
+          <div class="face-arriere">
+            <div class="arriere-entete">
+              <div class="arriere-titre">Circus Planner</div>
+              <button class="bouton-fermer" aria-label="Refermer la carte">✕ Fermer</button>
+            </div>
+            <div class="arriere-media">
+              <img src="style/img/circus1.png" alt="Circus Planner — interface principale de l'application" />
+              <img src="style/img/circus2.png" alt="Circus Planner — interface principale de l'application" />
+            </div>
+            <div class="arriere-competences">
+              <div class="arriere-sous-titre">Compétences</div>
+              <ul class="arriere-liste">
+                <li>Développement à partir de spécifications fonctionnelles</li>
+                <li>Analyse des besoins utilisateur</li>
+                <li>Travail en équipe sur un projet logiciel</li>
+              </ul>
+              <div class="arriere-sous-titre">Mes contributions</div>
+              <ul class="arriere-liste">
+                <li>Conception des interfaces et intégration visuelle</li>
+                <li>Création des cas d’utilisation et supports de présentation</li>
+              </ul>
+            </div>
+            <div class="arriere-pied">
+              <a class="lien-github" href="https://github.com/Ashildeure/Circus-Planner_Student-Project" target="_blank" rel="noopener noreferrer">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/></svg>
+                GitHub
+              </a>
+              <span class="arriere-equipe">Équipe de 5</span>
+            </div>
+          </div>
+ 
         </div>
-        <div class="equipe-carte">Équipe de 5</div>
-      </a>
-
+      </div>
+ 
     </div>
+
   </section>
 
   <!-- Séparateur ornemental -->
@@ -346,8 +523,7 @@
       <div class="etiquette-section" style="-webkit-box-pack:center; -ms-flex-pack:center; justify-content:center;">Contact</div>
 
       <p class="accroche-contact">
-        Envie de <em>collaborer</em> ?<br>
-        N'hésitez pas à me laisser un message.
+        Vous avez un projet, une question ou simplement envie d’échanger ?<br>
       </p>
 
       <form class="formulaire-contact" id="formulaire-contact" novalidate>
@@ -355,11 +531,11 @@
         <div class="rangee-formulaire">
           <div class="champ-formulaire">
             <label for="champ-nom">Nom / Entreprise *</label>
-            <input type="text" id="champ-nom" name="nom" placeholder="Votre nom" required autocomplete="name" />
+            <input type="text" id="champ-nom" name="from_name" placeholder="Votre nom" required autocomplete="name" />
           </div>
           <div class="champ-formulaire">
             <label for="champ-email">Adresse email *</label>
-            <input type="email" id="champ-email" name="email" placeholder="votre@email.com" required autocomplete="email" />
+            <input type="email" id="champ-email" name="from_email" placeholder="votre@email.com" required autocomplete="email" />
           </div>
         </div>
 
@@ -385,13 +561,21 @@
        PIED DE PAGE
   ===================================================== -->
   <footer id="pied-page" role="contentinfo">
-    <p>© 2026 Aline Rostagnat — Tous droits réservés</p>
+    <p>© 2026 Aline Rostagnat. Tous droits réservés</p>
     <div class="decoration-pied">
       <span>Développeuse Full Stack</span>
       <div class="separateur-diamant" style="opacity:0.5;" aria-hidden="true"></div>
       <span>Grenoble</span>
     </div>
   </footer>
+
+  <!-- =====================================================
+       LIGHTBOX
+  ===================================================== -->
+  <div id="lightbox" role="dialog" aria-modal="true" aria-label="Image agrandie">
+    <button id="lightbox-fermer" aria-label="Fermer">✕ fermer</button>
+    <img id="lightbox-img" src="" alt="" />
+  </div>
 
   <!-- =====================================================
        SCRIPTS
@@ -403,7 +587,8 @@
   <script src="js/curseur.js"></script>
   <script src="js/navigation.js"></script>
   <script src="js/animations.js"></script>
+  <script src="js/theme.js"></script>
   <script src="js/formulaire.js"></script>
-
+  <script src="js/cartes.js"></script>
 </body>
 </html>
