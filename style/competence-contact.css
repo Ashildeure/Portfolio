@@ -1,8 +1,8 @@
 /* ============================================================
-   COMPETENCES.CSS - Section compétences techniques
-   CONTACT.CSS    - Section formulaire de contact
-   PIED-PAGE.CSS  - Pied de page
-   Portfolio - Aline Rostagnat
+   COMPETENCES.CSS — Section compétences techniques
+   CONTACT.CSS    — Section formulaire de contact
+   PIED-PAGE.CSS  — Pied de page
+   Portfolio — Aline Rostagnat
    ============================================================ */
 
 /* ============================================================
@@ -172,7 +172,7 @@
 /* Citation d'accroche */
 .accroche-contact {
   font-family: var(--police-corps);
-  font-size: 1.4rem;
+  font-size: clamp(1.3rem, 3vw, 1.9rem);
   font-weight: 300;
   color: var(--creme);
   line-height: 1.5;
@@ -331,6 +331,17 @@
   -webkit-transition: background 0.3s, color 0.3s;
   transition: background 0.3s, color 0.3s;
   position: relative;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  gap: 0.6rem;
+  min-width: 150px;
 }
 
 .bouton-envoi::before {
@@ -344,6 +355,100 @@
 .bouton-envoi:hover {
   background: transparent;
   color: var(--or);
+}
+
+.bouton-envoi:disabled {
+  cursor: not-allowed;
+  opacity: 0.9;
+}
+
+/* Icône d'état : vide par défaut */
+.bouton-envoi-icone {
+  display: none;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+}
+
+/* === ÉTAT : ENVOI EN COURS (roue qui tourne) === */
+.bouton-envoi.en-cours .bouton-envoi-icone {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+.bouton-envoi.en-cours .bouton-envoi-icone::before {
+  content: '';
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(13, 10, 20, 0.25);
+  border-top-color: var(--vide);
+  border-radius: 50%;
+  -webkit-animation: tournerRoue 0.7s linear infinite;
+  animation: tournerRoue 0.7s linear infinite;
+}
+
+.bouton-envoi.en-cours:hover .bouton-envoi-icone::before {
+  border-color: rgba(201, 168, 76, 0.25);
+  border-top-color: var(--or);
+}
+
+@-webkit-keyframes tournerRoue {
+  to { -webkit-transform: rotate(360deg); }
+}
+@keyframes tournerRoue {
+  to { transform: rotate(360deg); }
+}
+
+/* === ÉTAT : ENVOI RÉUSSI (check qui se dessine) === */
+.bouton-envoi.reussi {
+  background: #4caf6e;
+  border-color: #4caf6e;
+  color: var(--vide);
+}
+
+.bouton-envoi.reussi .bouton-envoi-icone {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+.bouton-envoi.reussi .bouton-envoi-icone svg {
+  width: 16px;
+  height: 16px;
+}
+
+.bouton-envoi.reussi .bouton-envoi-icone svg path {
+  stroke: var(--vide);
+  stroke-width: 3;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 24;
+  stroke-dashoffset: 24;
+  -webkit-animation: dessinerCheck 0.4s ease forwards 0.1s;
+  animation: dessinerCheck 0.4s ease forwards 0.1s;
+}
+
+@-webkit-keyframes dessinerCheck {
+  to { stroke-dashoffset: 0; }
+}
+@keyframes dessinerCheck {
+  to { stroke-dashoffset: 0; }
+}
+
+/* === ÉTAT : ERREUR === */
+.bouton-envoi.erreur {
+  background: #c25450;
+  border-color: #c25450;
+  color: var(--vide);
 }
 
 /* Responsive contact */

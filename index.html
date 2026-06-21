@@ -528,14 +528,16 @@
 
       <form class="formulaire-contact" id="formulaire-contact" novalidate>
 
+        <input type="hidden" name="to_email" value="aline.rosta@gmail.com" />
+
         <div class="rangee-formulaire">
           <div class="champ-formulaire">
             <label for="champ-nom">Nom / Entreprise *</label>
-            <input type="text" id="champ-nom" name="from_name" placeholder="Votre nom" required autocomplete="name" />
+            <input type="text" id="champ-nom" name="nom" placeholder="Votre nom" required autocomplete="name" />
           </div>
           <div class="champ-formulaire">
             <label for="champ-email">Adresse email *</label>
-            <input type="email" id="champ-email" name="from_email" placeholder="votre@email.com" required autocomplete="email" />
+            <input type="email" id="champ-email" name="email" placeholder="votre@email.com" required autocomplete="email" />
           </div>
         </div>
 
@@ -546,10 +548,13 @@
 
         <div class="pied-formulaire">
           <div class="liens-alternatifs">
-            <a href="mailto:aline.rostagnat@etu.univ-grenoble-alpes.fr">Email direct</a>
+            <a href="mailto:aline.rosta@gmail.com">Email direct</a>
             <a href="https://www.linkedin.com/in/aline-rostagnat-724a862b3/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           </div>
-          <button type="submit" class="bouton-envoi">Envoyer →</button>
+          <button type="submit" class="bouton-envoi" id="bouton-envoi">
+            <span class="bouton-envoi-icone" aria-hidden="true"></span>
+            <span class="bouton-envoi-texte">Envoyer →</span>
+          </button>
         </div>
 
       </form>
