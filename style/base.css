@@ -40,7 +40,7 @@
   --carte:          #d4bfad;
   --violet:         #9e7e8a;
   --violet-moyen:   #b99aa8;
-  --violet-clair:   #7a5a68;
+  --violet-clair:   #5c3d1c;
   --or:             #a0723a;
   --or-clair:       #7a5228;
   --or-pale:        #5c3d1c;
@@ -121,9 +121,6 @@ a {
   text-decoration: none;
 }
 
-a:visited {
-  color: var(--violet-clair);
-}
 
 /* Sélection de texte */
 ::-moz-selection {
